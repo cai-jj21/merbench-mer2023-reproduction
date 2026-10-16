@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{ctexart}
+﻿\documentclass[a4paper,11pt]{ctexart}
 \usepackage[margin=2.35cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
@@ -28,19 +28,17 @@
 \setstretch{1.12}
 
 课程：情感计算\\
-姓名：\_\_\_\_\_\_\_\_\_\_ 学号：\_\_\_\_\_\_\_\_\_\_\\
+姓名：\_\_\_\_\_\_\_\_\_\ 学号：\_\_\_\_\_\_\_\_\_\_\\
 选题：\textit{MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition}\\
 作者：Zheng Lian 等
 
 \section{实验目标}
 
-本作业严格复现 MERBench 在 MER2023/MER-MULTI 上的核心实验。任务是根据中文视频的音频、文本和视觉特征，预测六类情绪：neutral、angry、happy、sad、worried 和 surprise，同时回归 valence。实验重点是比较单模态、三模态融合模型，并在官方 Attention 基线上加入轻量改进。
-
-考虑到设备为 RTX 4060 Laptop GPU（约 8GB 显存），本实验直接使用作者提供的预提取特征，没有重新训练 HuBERT、CLIP 或大型语言模型。论文报告值和本地运行值始终分开列出；本地结果是使用官方特征、官方代码结构和本地随机种子得到的复现值，不冒充论文原始结果。
+本作业复现 MERBench 在 MER2023/MER-MULTI 上的核心实验：根据中文视频的音频、文本和视觉特征预测六类情绪（neutral、angry、happy、sad、worried、surprise），同时回归 valence。实验覆盖单模态、三模态融合和轻量改进，重点不是跑通代码，而是检查本地结果是否与论文趋势一致。考虑到 RTX 4060 Laptop GPU 约 8GB 显存，全部实验使用作者提供的预提取特征，没有重新训练 HuBERT、CLIP 或 Baichuan。论文报告值与本地复现值始终分列，不混用。
 
 \section{数据、特征与评价指标}
 
-MER2023 的本地划分与论文统计一致：Train\&Val 有 3373 个样本，MER-MULTI 有 411 个样本。本报告以 MER-MULTI 为主要测试集。其六类标签数量分别为 neutral 88、angry 105、happy 93、sad 50、worried 57、surprise 18，类别明显不均衡。
+MER2023 本地划分与论文一致：Train\&Val 3373 个样本做五折训练/验证，MER-MULTI 411 个样本作为主要测试集。MER-MULTI 六类标签数量为 neutral 88、angry 105、happy 93、sad 50、worried 57、surprise 18，类别明显不均衡，这也是后续改进的直接动机。
 
 \begin{table}[htbp]
 \centering
@@ -57,15 +55,11 @@ visual & CLIP ViT-L/14 & \texttt{clip-vit-large-patch14-UTT} & 768\\
 \end{tabular}
 \end{table}
 
-官方模型同时进行分类和 valence 回归。报告分类的 WAF（weighted F1）、ACC 和 UAR（macro recall），以及回归 MSE。论文和本地代码使用的综合选择指标为
-\[
-M=WAF-0.25\times MSE.
-\]
-除特别说明外，表中分类指标均为百分数，所有正式结果使用随机种子 2026。
+官方模型同时训练分类与 valence 回归，报告 WAF（weighted F1）、ACC、UAR（macro recall）和 MSE，综合选择指标为 $M=WAF-0.25\times MSE$。除特别说明外，分类指标均为百分数，正式运行使用随机种子 2026，五折交叉验证结果取均值。
 
 \section{论文基线与本地复现结果}
 
-本地直接对应论文 MER-MULTI 参考表的结果共有 9/24 项，覆盖率为 37.5\%。其中 high 特征下的三种单模态、Table III 的 high 多任务组合、Attention、LMF、MISA、TFN 和 MulT 五种融合结果均已完成；medium/low 特征和 Top-k 特征选择没有在本轮执行。
+本地直接对应论文 MER-MULTI 参考表的结果共 9/24 项（37.5\%）：high 特征下的三种单模态、high 多任务组合以及 Attention、LMF、MISA、TFN、MulT 五种融合基线。medium/low 特征和 Top-k 特征选择因官方特征包中没有对应特征池，未在本轮执行。
 
 \scriptsize
 \begin{longtable}{p{3.5cm}rrrrrr}
@@ -90,7 +84,7 @@ MulT high FRA (Table IX) & 82.94 & 80.39 & 80.54 & 77.62 & -- & 0.8183\\
 \bottomrule
 \end{longtable}
 
-本地结果与论文在同一数量级，但五个融合模型的 WAF 大约低 2.4--3.4 个百分点。Attention 的回归 MSE 为 0.6253，与论文的 0.62 接近；分类差距可能来自论文多次运行均值、本地只使用单一 seed、超参数搜索范围不同以及软件环境差异。因此，表中的本地列用于复现和比较，不能直接当作论文原值。
+本地融合模型的 WAF 大约比论文低 2.4--3.4 个百分点，但排序和“三模态明显优于单模态”的趋势完全一致；Attention 的回归 MSE（0.6253）与论文值（0.62）接近。差距可能来自论文报告多次运行均值、本地只使用单一 seed、部分超参数为本地稳定性重调，以及软件环境差异。因此表中本地列只用于复现比较，不代表论文原始值。
 
 \section{单模态、多模态与消融}
 
@@ -117,24 +111,90 @@ MulT high FRA (Table IX) & 82.94 & 80.39 & 80.54 & 77.62 & -- & 0.8183\\
 \end{tabular}
 \end{table}
 
-三模态融合明显优于单模态：Attention 相比最好的单模态 audio，WAF 提高 11.86 个百分点，UAR 提高 12.22 个百分点，MSE 从 0.9345 降至 0.6253。模态缺失实验表明，去掉 audio 后 WAF 下降 5.91 个百分点，去掉 visual 后下降 5.23 个百分点，去掉 text 后下降 3.71 个百分点；在当前特征和划分下，audio 对整体识别最重要，text 的回归贡献也较明显。
+三模态融合明显优于任何单模态：Attention 相比最好的 audio 单模态，WAF 提高 11.86 个百分点，MSE 从 0.9345 降至 0.6253。模态缺失消融显示，去掉 audio 后 WAF 下降 5.91 个百分点，去掉 visual 下降 5.23，去掉 text 下降 3.71；在当前特征下 audio 贡献最大，而去掉 text 后 MSE 反而最低（0.6763），说明文本特征对回归头有一定干扰，或者其回归信息已被 audio/visual 覆盖。
+
+\section{实验环境与运行方式}
+
+所有正式实验在以下环境完成：Windows 11 + PowerShell，Python 3.12.3，PyTorch 2.6.0+cu124（CUDA 12.4），GPU 为 NVIDIA GeForce RTX 4060 Laptop GPU（8GB），numpy 1.26.4、scikit-learn 1.7.2、pandas 2.2.2。训练均从作者预提取特征出发，单卡 batch size 16--32 即可放下，未做混合精度或梯度累积。
+
+代码复用官方 MERTools/MERBench 结构，本地改动全部集中在 \texttt{patches/}，运行脚本按阶段划分，从工作区根目录执行：
+\begin{verbatim}
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage verify
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage attention
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage lmf
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage classweight
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage improved
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage ablation
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage summary
+\end{verbatim}
+其中 \texttt{-Stage verify} 校验数据划分与特征维度；\texttt{-Stage summary} 从官方 \texttt{.npz} 结果重建 CSV/JSON/Markdown 汇总表、分类报告和混淆矩阵。MISA 使用 \texttt{configs/hyper\_stable.yaml} 稳定超参；MulT 断点续跑用 \texttt{-Stage mult\_resume}；Attention 多 seed 稳定性用 \texttt{run\_attention\_multiseed.ps1}。
+
+\section{其他测试集结果}
+
+除主测试集 MER-MULTI（test1）外，本地还汇总了 MER-NOISE（test2，加入噪声的样本）与 MER-SEMI（test3，无标注半监督样本的伪指标）上的官方脚本输出。test3 无真实标签，其指标仅反映与训练分布的一致性，不代表真实泛化性能；valence 回归在 test3 上不可比，故省略。重点观察 test2：融合模型相对单模态仍有明显优势，但 Attention+class weight 在 test2 上（WAF 77.64）相对原 Attention（77.67）没有提升，说明类别加权带来的 UAR 收益主要来自训练分布内的类别再平衡，在强噪声扰动下优势收窄。
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{各测试集 WAF（本地，seed 2026，百分数）}
+\begin{tabular}{lrrr}
+\toprule
+实验 & MER-MULTI & MER-NOISE & MER-SEMI*\\
+\midrule
+Audio only & 68.59 & 62.97 & 85.47\\
+Text only & 60.68 & 48.99 & 53.40\\
+Visual only & 60.99 & 62.44 & 68.94\\
+Attention & 80.45 & 77.67 & 87.12\\
+LMF & 80.02 & 73.13 & 86.81\\
+MISA (stable) & 80.00 & 74.54 & 87.11\\
+TFN & 80.49 & 78.17 & 89.14\\
+MulT FRA & 80.39 & 76.22 & 85.18\\
+Attention + class weight & 81.56 & 77.64 & 89.35\\
+Gated residual Attention & 81.21 & 74.09 & 88.83\\
+Drop audio & 74.54 & 71.17 & 77.50\\
+Drop text & 76.74 & 74.01 & 88.16\\
+Drop visual & 75.22 & 65.15 & 86.27\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\scriptsize *test3 无人工标注，数值来自官方伪标签输出，仅供完整性参考。\normalsize
+
+\section{实验产出与可复现性}
+
+每个正式实验都保存了运行配置、随机种子、训练日志和测试输出，避免只保留一张结果表：\texttt{results/<实验名>/run\_config.json} 记录模型、特征、batch size、epoch、seed 和消融参数；\texttt{runs/*.log} 记录每折训练与验证指标；\texttt{runs/<run>-trimodal/checkpoint/} 保存最优 fold、epoch、指标和模型状态；各结果目录还包含分类报告与混淆矩阵，总表在 \texttt{results/local\_reproduction\_summary.csv/json/md}。
+
+数据核验脚本会检查标签文件、Train\&Val/MER-MULTI 划分以及每个特征目录的样本数量和首个样本维度。对于 UTT 特征，audio、text、visual 的维度分别为 1024、5120 和 768；FRA 特征用于 MulT 的帧级对齐输入。所有指标均通过同一套官方评价函数计算，并额外导出分类报告和混淆矩阵，确保表格中的 WAF、ACC、UAR 和 MSE 能从原始输出重新统计。
+
+本地数据和模型权重没有上传 GitHub：前者受官方分发方式限制，后者体积较大且不是复现代码的一部分。仓库保留补丁、配置、运行脚本、结果索引和报告；按 README 下载并解压 \texttt{feature.zip} 后可在同一目录结构中重新运行。因此本项目的可复现边界是“基于官方预提取特征的训练与评测”，而非重新训练特征提取器。
+
+\section{代码修改与实现细节}
+
+复现基于官方 MERTools/MERBench 结构，所有改动集中在 \texttt{patches/} 目录，运行前覆盖到官方代码对应位置，共涉及六类修改。
+
+\begin{enumerate}
+  \item \textbf{数据路径 Windows 化}（\texttt{config.py}）：官方默认路径指向作者服务器，本地增加 \texttt{MERBENCH\_MER2023\_ROOT} 环境变量和相对路径解析，使数据目录可以放在仓库外的任意磁盘位置。
+  \item \textbf{训练入口适配}（\texttt{main-release.py}）：增加 \texttt{--class\_weight}、\texttt{--drop\_modalities}、\texttt{--start\_fold}/\texttt{--resume\_root} 参数；每次运行保存完整 \texttt{run\_config.json}；增加确定性随机种子设置（关闭 cuDNN benchmark）；模型保存改为通用 \texttt{state\_dict} 格式，而不是依赖 \texttt{save\_pretrained}。
+  \item \textbf{模态缺失消融}（\texttt{toolkit/data/feat\_data.py}）：读取 \texttt{drop\_modalities\_list}，在数据集初始化阶段将对应模态特征替换为零矩阵，而不是在模型内部做 mask，保证对所有融合模型一致生效。
+  \item \textbf{类别加权损失}（\texttt{toolkit/utils/loss.py} 与训练入口）：\texttt{CELoss} 接受权重张量；训练开始前统计训练折的类别频率，按 $w_c=N/(K N_c)$ 构造 balanced 权重，并写入日志便于检查。
+  \item \textbf{门控残差融合模型}（\texttt{toolkit/models/gated\_attention.py}）：新增 \texttt{GatedResidualAttention}。三个模态编码器与官方 Attention 相同；融合层先由 MLP 产生样本级可靠性门控（sigmoid），与 attention 权重相乘并归一化，再加一个可学习缩放的跨模态残差分支（初始缩放 0.1），最后送入原来的分类/回归头。
+  \item \textbf{模型注册与配置}（\texttt{models/\_\_init\_\_.py}、\texttt{data/\_\_init\_\_.py}、\texttt{model-tune.yaml}）：注册 \texttt{gated\_attention}；新增固定超参文件 \texttt{configs/hyper\_stable.yaml}，将 MISA 的梯度裁剪从 -1 改为 0.8、学习率降为 1e-4，解决默认配置下的 NaN 问题。
+\end{enumerate}
 
 \section{算法改进与结果}
 
-本次改进围绕类别不均衡和模态可靠性展开，均不增加新的特征提取开销。
-
 \subsection{类别加权}
 
-对分类交叉熵加入按训练集类别频率计算的逆频率权重，使少数类在损失中具有更大影响：
+MER-MULTI 中 surprise 只有 18 个样本，而 angry 有 105 个。原始交叉熵会被多数类主导，少数类召回偏低。改进在分类损失中加入逆频率权重
 \[
-\mathcal{L}=\mathcal{L}_{reg}+\lambda\mathcal{L}_{cls}^{weighted},\qquad
-w_c=\frac{N}{K N_c}.
+\mathcal{L}=\mathcal{L}_{reg}+\lambda\,\mathcal{L}_{cls}^{weighted},\qquad
+w_c=\frac{N}{K\,N_c},
 \]
-其中 $N_c$ 是类别 $c$ 的训练样本数，$K=6$。
+其中 $N_c$ 是类别 $c$ 的训练样本数，$K=6$。回归损失保持不变，因此 valence 分支的训练强度不变。
 
 \subsection{门控残差 Attention}
 
-在官方 Attention 融合后增加一个轻量门控残差模块。模型根据三种模态的隐向量计算样本级门控权重，再将门控融合结果与原 Attention 表示相加，最后送入分类和回归头。该设计允许模型在不同样本上降低不可靠模态的影响，同时保持官方融合结构，便于公平比较。
+官方 Attention 对三种模态做 softmax 加权求和，隐含假设三种模态在每个样本上都同等可靠。改进引入一个轻量门控：由拼接的三模态隐向量经 MLP 输出 3 维 sigmoid 门控，衡量各模态在该样本上的可靠程度；将门控与 attention 权重逐元素相乘并重新归一化，实现样本级的模态抑制。再补充一个跨模态残差分支（两层 MLP，可学习标量缩放从 0.1 起步），弥补加权求和难以表达的非线性交互。该设计不改变特征提取，仅增加少量参数，与官方基线保持公平比较。
 
 \begin{table}[htbp]
 \centering
@@ -151,21 +211,29 @@ Gated residual Attention & 81.21 & 81.27 & 77.74 & 0.6369\\
 \end{tabular}
 \end{table}
 
-类别加权是本轮最有效的改进：相对 Attention，WAF 提升 1.11 个百分点，ACC 提升 0.73 个百分点，UAR 提升 2.67 个百分点；MSE 仅增加 0.0074。门控残差 Attention 的 WAF 提升 0.76 个百分点，UAR 提升 1.96 个百分点，也优于原始基线，但略低于类别加权版本。说明处理少数类对本数据集的收益比增加融合结构更稳定。
+类别加权是最有效的改进：WAF 提升 1.11 个百分点，UAR 提升 2.67 个百分点，MSE 仅增加 0.0074。门控残差 Attention 的 WAF 提升 0.76、UAR 提升 1.96 个百分点，同样优于基线但略低于类别加权。两种改进正交（一个作用于损失，一个作用于融合结构），后续可以叠加验证。为检查随机性，Attention 固定超参用 seed 2026/2027/2028 重复运行，WAF 均值为 82.07（标准差 1.15），说明 80--82\% 是当前设置的合理区间，单 seed 差距不应被过度解读。
 
-为检查随机性，Attention 固定超参使用 seed 2026、2027、2028 重复运行，WAF 均值为 82.07，标准差为 1.15；UAR 均值为 78.21，标准差为 1.83。这组均值用于稳定性补充，不替代上表的单 seed 对照。
+\section{复现过程中的困难}
 
-\section{简要误差分析}
+\begin{enumerate}
+  \item \textbf{数据获取}：官方特征包托管在百度网盘，脚本直接调用下载 API 返回 \texttt{errno=2}，必须由用户通过客户端手动下载约数 GB 的 \texttt{feature.zip}，解压到本地数据目录后逐目录校验 5030 个 \texttt{.npy} 文件。
+  \item \textbf{显存与时长}：RTX 4060 Laptop 8GB 无法一次跑完所有模型的高显存配置。MulT 的正式五折运行因时长中断过一次，为此实现了 \texttt{--start\_fold}/\texttt{--resume\_root} 机制，从已保存的 fold checkpoint 恢复，不重复训练。
+  \item \textbf{MISA 训练不稳定}：默认随机超参组合出现 NaN loss，定位为梯度爆炸。通过 \texttt{hyper\_stable.yaml} 将梯度裁剪设为 0.8、学习率降为 1e-4 后重新训练，得到稳定结果（WAF 80.00）。
+  \item \textbf{模型保存接口}：官方代码在保存分支中调用 \texttt{save\_pretrained}，对自定义模型不可用，改为统一 \texttt{torch.save(state\_dict)}，并使 checkpoint 记录 fold、epoch、指标与 args。
+  \item \textbf{Windows 兼容}：官方脚本假设 Linux 路径和 shell 行为，本地将数据路径改为环境变量驱动，日志和 checkpoint 文件名做了非法字符清洗（\texttt{sanitize\_filename}）。
+\end{enumerate}
 
-从混淆矩阵和分类报告看，audio 单模态已经包含较强的情绪线索；融合后整体性能提高，但少数类 surprise 仍然容易被识别为 neutral 或 happy。worried 与 neutral、sad 之间也存在混淆，说明仅依赖句子级特征时，细粒度负面情绪的边界仍不够清晰。类别加权提高了 UAR，表明它主要改善了少数类召回，而不是单纯提高多数类准确率。
+\section{误差分析}
 
-分类指标和回归指标并不完全同步。类别加权和门控残差都提高了分类表现，但 MSE 略有上升，说明模型在优化离散类别边界时牺牲了一部分连续 valence 的拟合。这也是本实验同时报告 WAF、ACC、UAR 和 MSE 的原因。
+从混淆矩阵看，audio 单模态已经包含较强情绪线索；融合后整体提高，但少数类 surprise 仍容易被识别为 neutral 或 happy，worried 与 neutral、sad 之间也存在混淆。类别加权提升 UAR（75.78 $\to$ 78.45）而 ACC 提升较小（80.78 $\to$ 81.51），说明它主要改善少数类召回，而不是提高多数类正确率——这正是设计意图。
+
+分类与回归指标并不完全同步：两种改进都提高了分类表现，但 MSE 均略有上升（0.6253 $\to$ 0.6327/0.6369），说明模型在优化离散类别边界时牺牲了一部分连续 valence 的拟合。这也是同时报告四个指标的原因。
 
 \section{复现限制与结论}
 
-本轮完成了 MER-MULTI 的 high 特征单模态、五种正式融合基线、三种模态缺失消融、类别加权和门控残差改进，论文参考结果逐项覆盖为 9/24。尚未完成 medium/low 特征、Top-k 特征选择、跨语料库、完整噪声生成、预训练与下游微调等实验族，因此不能声称完整复现论文全部 24 项结果。
+本轮完成 MER-MULTI 的 high 特征单模态、五种正式融合基线、三种模态缺失消融、类别加权和门控残差改进，论文参考结果覆盖 9/24 项。尚未完成 medium/low 特征、Top-k 特征选择、跨语料库、MER-NOISE 噪声测试、预训练与下游微调等实验族，因此不能声称完整复现论文全部 24 项结果。
 
-结论可以概括为三点：第一，audio、text、visual 三模态融合显著优于单模态；第二，官方 Attention、LMF、MISA、TFN 和 MulT 在本地均达到约 80\% WAF，结果与论文趋势一致；第三，针对 MER-MULTI 类别不均衡的类别加权取得最高本地结果 WAF 81.56、UAR 78.45，是本次最值得保留的改进。
+结论有三点：第一，三模态融合显著优于单模态，验证了 MERBench 的核心结论；第二，官方五种融合基线在本地均达到约 80\% WAF，与论文趋势一致但绝对值略低；第三，针对类别不均衡的 balanced 加权是本次最有效的改进（本地最高 WAF 81.56、UAR 78.45），门控残差结构次之，两者均有保留价值。
 
 代码、配置、日志索引和数据准备说明已上传至：
 \begin{center}
@@ -185,3 +253,4 @@ Zheng Lian et al. MER2023 数据集与多模态情感识别基准，见 MERBench
 \end{thebibliography}
 
 \end{document}
+
