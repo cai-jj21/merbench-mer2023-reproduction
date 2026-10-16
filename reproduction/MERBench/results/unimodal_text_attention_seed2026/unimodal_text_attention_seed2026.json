@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_text_attention_seed2026-unimodal\\result\\cv_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.5068_acc_0.5149_val_1.9906_1791903148.2929802.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.5068,
+    "filename_acc": 0.5149,
+    "filename_val_mse": 1.9906
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_text_attention_seed2026-unimodal\\result\\test1_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6068_acc_0.6083_val_1.6614_1791903148.2929802.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.6068,
+    "filename_acc": 0.6083,
+    "filename_val_mse": 1.6614,
+    "n_samples": 411,
+    "waf": 0.6068444416830717,
+    "accuracy": 0.6082725060827251,
+    "uar": 0.5536120114558145,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test1_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6068_acc_0.6083_val_1.6614_1791903148.2929802_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test1_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6068_acc_0.6083_val_1.6614_1791903148.2929802_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.6613637685706923,
+    "val_mse_valid_labels_only": 1.6613637685706923
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_text_attention_seed2026-unimodal\\result\\test2_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.4899_acc_0.4951_val_1.6125_1791903148.2929802.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.4899,
+    "filename_acc": 0.4951,
+    "filename_val_mse": 1.6125,
+    "n_samples": 412,
+    "waf": 0.48988102831455904,
+    "accuracy": 0.49514563106796117,
+    "uar": 0.42125367140235576,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test2_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.4899_acc_0.4951_val_1.6125_1791903148.2929802_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test2_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.4899_acc_0.4951_val_1.6125_1791903148.2929802_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.6124838837093485,
+    "val_mse_valid_labels_only": 1.6124838837093485
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_text_attention_seed2026-unimodal\\result\\test3_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.5340_acc_0.5396_val_87.1350_1791903148.2929802.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.534,
+    "filename_acc": 0.5396,
+    "filename_val_mse": 87.135,
+    "n_samples": 834,
+    "waf": 0.5340094485846701,
+    "accuracy": 0.539568345323741,
+    "uar": 0.48647933000005006,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test3_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.5340_acc_0.5396_val_87.1350_1791903148.2929802_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_text_attention_seed2026\\test3_features_Baichuan-13B-Base-UTT_dataset_MER2023_model_attention+utt+None_f1_0.5340_acc_0.5396_val_87.1350_1791903148.2929802_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 87.13503667222177
+  }
+]

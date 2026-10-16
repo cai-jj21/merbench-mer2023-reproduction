@@ -1,0 +1,29 @@
+# Downloaded data and extracted features
+/data/
+/downloads/
+*.zip
+*.npz
+*.npy
+
+# Training outputs and temporary files
+runs/
+tmp/
+__pycache__/
+*.py[cod]
+*.pth
+*.pt
+*.ckpt
+
+# LaTeX build artifacts
+reports/*.aux
+reports/*.log
+reports/*.out
+reports/*.toc
+reports/*.fls
+reports/*.fdb_latexmk
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

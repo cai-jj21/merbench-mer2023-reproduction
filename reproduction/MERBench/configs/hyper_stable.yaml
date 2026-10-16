@@ -1,0 +1,29 @@
+misa:
+  dropout: 0.2
+  hidden_dim: 64
+  sim_weight: 0.0
+  diff_weight: 0.0
+  recon_weight: 0.0
+  grad_clip: 0.8
+  lr: 1e-4
+
+tfn:
+  hidden_dim: 64
+  dropout: 0.4
+  grad_clip: -1.0
+  lr: 1e-3
+
+mult:
+  layers: 2
+  dropout: 0.2
+  num_heads: 8
+  hidden_dim: 64
+  conv1d_kernel_size: 3
+  grad_clip: 1.0
+  lr: 1e-4
+
+gated_attention:
+  hidden_dim: 64
+  dropout: 0.4
+  grad_clip: -1.0
+  lr: 1e-3

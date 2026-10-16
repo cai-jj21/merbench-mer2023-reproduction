@@ -1,0 +1,26 @@
+source_table,setting,model_or_feature,feature_set,mer_multi_waf_mean,mer_multi_waf_std,mer_multi_mse_mean,mer_multi_mse_std,notes
+Table II,unimodal,audio: HUBERT-large,HUBERT-large,69.91,0.58,0.97,0.01,Paper official MER2023 MER-MULTI value
+Table II,unimodal,text: Baichuan-13B,Baichuan-13B,62.54,0.69,1.63,0.01,Paper official MER2023 MER-MULTI value
+Table II,unimodal,visual: CLIP-large,CLIP-large,62.69,0.23,1.12,0.01,Paper official MER2023 MER-MULTI value
+Table II,unimodal,audio: wav2vec 2.0-base,medium set audio,60.83,0.36,1.53,0.01,Paper official MER2023 MER-MULTI value
+Table II,unimodal,text: DeBERTa-large,medium set text,52.48,0.20,2.14,0.01,Paper official MER2023 MER-MULTI value
+Table II,unimodal,visual: SENet-FER2013,medium set visual,56.92,0.55,1.27,0.01,Paper official MER2023 MER-MULTI value
+Table III,multimodal,attention-style MER2023 baseline,HL+BA+CL,83.02,0.31,0.62,0.01,Paper official MER2023 multi-task WAF/MSE
+Table III,multimodal,attention-style MER2023 baseline,HB+BL+EB,78.86,0.32,0.74,0.01,Paper official MER2023 multi-task WAF/MSE
+Table IX,multimodal,Attention,high: CLIP-large+HUBERT-large+Baichuan-13B,83.03,0.16,,,Paper official MERBench WAF only
+Table IX,multimodal,LMF,high: CLIP-large+HUBERT-large+Baichuan-13B,83.44,0.69,,,Paper official MERBench WAF only
+Table IX,multimodal,MISA,high: CLIP-large+HUBERT-large+Baichuan-13B,82.42,0.70,,,Paper official MERBench WAF only
+Table IX,multimodal,TFN,high: CLIP-large+HUBERT-large+Baichuan-13B,82.52,0.48,,,Paper official MERBench WAF only
+Table IX,multimodal,MulT,high: CLIP-large+HUBERT-large+Baichuan-13B,82.94,0.44,,,Paper official MERBench WAF only
+Table IX,multimodal,Attention,medium: SENet-FER2013+wav2vec2-base+DeBERTa-large,74.42,0.45,,,Paper official MERBench WAF only
+Table IX,multimodal,LMF,medium: SENet-FER2013+wav2vec2-base+DeBERTa-large,74.44,0.15,,,Paper official MERBench WAF only
+Table IX,multimodal,MISA,medium: SENet-FER2013+wav2vec2-base+DeBERTa-large,73.75,0.35,,,Paper official MERBench WAF only
+Table IX,multimodal,TFN,medium: SENet-FER2013+wav2vec2-base+DeBERTa-large,75.25,0.46,,,Paper official MERBench WAF only
+Table IX,multimodal,MulT,medium: SENet-FER2013+wav2vec2-base+DeBERTa-large,76.47,0.26,,,Paper official MERBench WAF only
+Table X,ablation,Top1 Attention,top-1 per modality,83.03,0.16,,,Paper official feature-number ablation
+Table X,ablation,Top2 Attention,top-2 per modality,84.46,0.68,,,Paper official feature-number ablation
+Table X,ablation,Top3 Attention,top-3 per modality,84.75,0.26,,,Paper official feature-number ablation
+Table X,ablation,Top4 Attention,top-4 per modality,84.65,0.47,,,Paper official feature-number ablation
+Table X,ablation,Top5 Attention,top-5 per modality,83.53,0.35,,,Paper official feature-number ablation
+Table X,ablation,Top6 Attention,top-6 per modality,83.85,0.12,,,Paper official feature-number ablation
+

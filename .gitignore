@@ -1,0 +1,43 @@
+# This repository publishes only the MERBench reproduction and its reference code.
+/*
+!/.gitignore
+!/README.md
+!/reproduction/
+/reproduction/*
+!/reproduction/MERBench/
+!/reproduction/MERBench/**
+
+# The official MERTools checkout remains an external dependency.
+/references/
+
+# Local data, downloaded archives, extracted features, and model outputs.
+/reproduction/MERBench/data/
+/reproduction/MERBench/downloads/
+/reproduction/MERBench/runs/
+/reproduction/MERBench/tmp/
+/reproduction/MERBench/results/*/test*
+/reproduction/MERBench/results/*/fold*
+/reproduction/MERBench/results/*/cv*
+/reproduction/MERBench/results/**/*classification_report*
+**/*.zip
+**/*.npz
+**/*.npy
+**/*.pt
+**/*.pth
+**/*.ckpt
+
+# Python and local tooling artifacts.
+**/__pycache__/
+**/*.py[cod]
+**/.vscode/
+**/.idea/
+**/.DS_Store
+**/Thumbs.db
+
+# LaTeX build artifacts.
+**/*.aux
+**/*.log
+**/*.out
+**/*.toc
+**/*.fls
+**/*.fdb_latexmk

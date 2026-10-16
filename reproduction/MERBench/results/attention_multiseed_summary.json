@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "seed": 2026,
+      "run": "attention_high_seed2026_ckpt",
+      "waf_percent": 80.45306828188869,
+      "accuracy_percent": 80.7785888077859,
+      "uar_percent": 75.7820124602807,
+      "mse": 0.6252582285501138,
+      "n_samples": 411
+    },
+    {
+      "seed": 2027,
+      "run": "attention_high_seed2027_stable",
+      "waf_percent": 83.05567189234053,
+      "accuracy_percent": 82.9683698296837,
+      "uar_percent": 80.18909382449282,
+      "mse": 0.6311323452897634,
+      "n_samples": 411
+    },
+    {
+      "seed": 2028,
+      "run": "attention_high_seed2028_stable",
+      "waf_percent": 82.70632166765029,
+      "accuracy_percent": 82.7250608272506,
+      "uar_percent": 78.66033036321662,
+      "mse": 0.6157183683159986,
+      "n_samples": 411
+    }
+  ],
+  "aggregate": {
+    "experiment": "Attention fixed hyperparameters",
+    "split": "MER-MULTI/test1",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "n_runs": 3,
+    "waf_percent_mean": 82.0716872806265,
+    "waf_percent_std": 1.1533883393951423,
+    "accuracy_percent_mean": 82.15733982157339,
+    "accuracy_percent_std": 0.9799712873961484,
+    "uar_percent_mean": 78.21047888266338,
+    "uar_percent_std": 1.8270862602539948,
+    "mse_mean": 0.6240363140519586,
+    "mse_std": 0.006351770242357072
+  }
+}

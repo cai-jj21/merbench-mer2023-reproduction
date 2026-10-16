@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_mult_fra_1ep-trimodal\\result\\cv_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6098_acc_0.6469_val_1.0628_1791962230.3865085.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.6098,
+    "filename_acc": 0.6469,
+    "filename_val_mse": 1.0628
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_mult_fra_1ep-trimodal\\result\\test1_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6513_acc_0.6837_val_1.0093_1791962230.3865085.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.6513,
+    "filename_acc": 0.6837,
+    "filename_val_mse": 1.0093,
+    "n_samples": 411,
+    "waf": 0.6513224580690644,
+    "accuracy": 0.683698296836983,
+    "uar": 0.5574114946865372,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test1_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6513_acc_0.6837_val_1.0093_1791962230.3865085_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test1_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6513_acc_0.6837_val_1.0093_1791962230.3865085_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.0092514846863674,
+    "val_mse_valid_labels_only": 1.0092514846863674
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_mult_fra_1ep-trimodal\\result\\test2_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6376_acc_0.6699_val_0.9499_1791962230.3865085.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.6376,
+    "filename_acc": 0.6699,
+    "filename_val_mse": 0.9499,
+    "n_samples": 412,
+    "waf": 0.6376225483773557,
+    "accuracy": 0.6699029126213593,
+    "uar": 0.49830544453877385,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test2_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6376_acc_0.6699_val_0.9499_1791962230.3865085_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test2_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.6376_acc_0.6699_val_0.9499_1791962230.3865085_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 0.949856218769335,
+    "val_mse_valid_labels_only": 0.949856218769335
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_mult_fra_1ep-trimodal\\result\\test3_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.7514_acc_0.7614_val_80.8036_1791962230.3865085.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.7514,
+    "filename_acc": 0.7614,
+    "filename_val_mse": 80.8036,
+    "n_samples": 834,
+    "waf": 0.7513782911304677,
+    "accuracy": 0.7613908872901679,
+    "uar": 0.622086775281254,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test3_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.7514_acc_0.7614_val_80.8036_1791962230.3865085_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_mult_fra_1ep\\test3_features_Baichuan-13B-Base-FRA+chinese-hubert-large-FRA+clip-vit-large-patch14-FRA_dataset_MER2023_model_mult+frm_align+None_f1_0.7514_acc_0.7614_val_80.8036_1791962230.3865085_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 80.80363910917085
+  }
+]

@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_misa_stable_1ep-trimodal\\result\\cv_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3137_acc_0.4118_val_1.5111_1791962644.270134.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.3137,
+    "filename_acc": 0.4118,
+    "filename_val_mse": 1.5111
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_misa_stable_1ep-trimodal\\result\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3545_acc_0.4428_val_1.3304_1791962644.270134.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.3545,
+    "filename_acc": 0.4428,
+    "filename_val_mse": 1.3304,
+    "n_samples": 411,
+    "waf": 0.35451373673381664,
+    "accuracy": 0.44282238442822386,
+    "uar": 0.3141466508401992,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3545_acc_0.4428_val_1.3304_1791962644.270134_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3545_acc_0.4428_val_1.3304_1791962644.270134_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.3303917862440973,
+    "val_mse_valid_labels_only": 1.3303917862440973
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_misa_stable_1ep-trimodal\\result\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3947_acc_0.4782_val_1.2514_1791962644.270134.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.3947,
+    "filename_acc": 0.4782,
+    "filename_val_mse": 1.2514,
+    "n_samples": 412,
+    "waf": 0.39470239059642953,
+    "accuracy": 0.47815533980582525,
+    "uar": 0.3073563599816153,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3947_acc_0.4782_val_1.2514_1791962644.270134_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3947_acc_0.4782_val_1.2514_1791962644.270134_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.2513660255374104,
+    "val_mse_valid_labels_only": 1.2513660255374104
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\smoke_misa_stable_1ep-trimodal\\result\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3106_acc_0.4161_val_84.1242_1791962644.270134.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.3106,
+    "filename_acc": 0.4161,
+    "filename_val_mse": 84.1242,
+    "n_samples": 834,
+    "waf": 0.3105778395392338,
+    "accuracy": 0.41606714628297364,
+    "uar": 0.3310692246789726,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3106_acc_0.4161_val_84.1242_1791962644.270134_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\smoke_misa_stable_1ep\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_misa+utt+None_f1_0.3106_acc_0.4161_val_84.1242_1791962644.270134_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 84.12419645152578
+  }
+]

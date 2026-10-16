@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_visual_attention_seed2026-unimodal\\result\\cv_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6374_acc_0.6502_val_1.0876_1791903999.7801955.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.6374,
+    "filename_acc": 0.6502,
+    "filename_val_mse": 1.0876
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_visual_attention_seed2026-unimodal\\result\\test1_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6099_acc_0.6229_val_1.1297_1791903999.7801955.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.6099,
+    "filename_acc": 0.6229,
+    "filename_val_mse": 1.1297,
+    "n_samples": 411,
+    "waf": 0.6098807447025566,
+    "accuracy": 0.6228710462287105,
+    "uar": 0.5187057575512584,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test1_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6099_acc_0.6229_val_1.1297_1791903999.7801955_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test1_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6099_acc_0.6229_val_1.1297_1791903999.7801955_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.1297090672862726,
+    "val_mse_valid_labels_only": 1.1297090672862726
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_visual_attention_seed2026-unimodal\\result\\test2_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6244_acc_0.6335_val_1.1233_1791903999.7801955.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.6244,
+    "filename_acc": 0.6335,
+    "filename_val_mse": 1.1233,
+    "n_samples": 412,
+    "waf": 0.6243953929026745,
+    "accuracy": 0.633495145631068,
+    "uar": 0.5173609048113433,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test2_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6244_acc_0.6335_val_1.1233_1791903999.7801955_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test2_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6244_acc_0.6335_val_1.1233_1791903999.7801955_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.1233187061293377,
+    "val_mse_valid_labels_only": 1.1233187061293377
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_visual_attention_seed2026-unimodal\\result\\test3_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6894_acc_0.6930_val_83.3121_1791903999.7801955.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.6894,
+    "filename_acc": 0.693,
+    "filename_val_mse": 83.3121,
+    "n_samples": 834,
+    "waf": 0.6893588583200763,
+    "accuracy": 0.6930455635491607,
+    "uar": 0.5257664359594348,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test3_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6894_acc_0.6930_val_83.3121_1791903999.7801955_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_visual_attention_seed2026\\test3_features_clip-vit-large-patch14-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6894_acc_0.6930_val_83.3121_1791903999.7801955_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 83.31205981231804
+  }
+]

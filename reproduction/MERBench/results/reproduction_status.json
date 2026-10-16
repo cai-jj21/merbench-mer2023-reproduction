@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-16",
+  "paper": "MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition",
+  "dataset": "MER2023",
+  "primary_split": "MER-MULTI / test1_corpus",
+  "status": "core reproduction completed; strict full-paper reproduction remains limited by unavailable official feature pools",
+  "data_status": {
+    "official_baidu_feature_zip_downloaded": true,
+    "feature_zip_source": "D:/BaiduNetdiskDownload/feature.zip",
+    "local_data_root": "reproduction/MERBench/data/mer2023-dataset-process",
+    "verified_features": [
+      "chinese-hubert-large-UTT",
+      "Baichuan-13B-Base-UTT",
+      "clip-vit-large-patch14-UTT",
+      "chinese-hubert-large-FRA",
+      "Baichuan-13B-Base-FRA",
+      "clip-vit-large-patch14-FRA"
+    ]
+  },
+  "completed": {
+    "unimodal": [
+      "audio",
+      "text",
+      "visual"
+    ],
+    "paper_baselines": [
+      "Attention",
+      "LMF",
+      "MISA stable",
+      "TFN",
+      "MulT high FRA"
+    ],
+    "improvement": [
+      "Attention + balanced class weight"
+    ],
+    "ablations": [
+      "drop audio",
+      "drop text",
+      "drop visual"
+    ],
+    "statistics": [
+      "Attention fixed hyperparameters, seeds 2026/2027/2028"
+    ],
+    "summaries": [
+      "results/local_reproduction_summary.csv",
+      "results/local_reproduction_summary.json",
+      "results/local_reproduction_summary.md"
+    ],
+    "report": "reports/merbench_report_draft.md"
+  },
+  "key_test1_results": {
+    "Attention high": {
+      "waf": 80.45,
+      "acc": 80.78,
+      "uar": 75.78,
+      "mse": 0.6253
+    },
+    "LMF high": {
+      "waf": 80.02,
+      "acc": 80.05,
+      "uar": 74.91,
+      "mse": 0.7023
+    },
+    "MISA high stable": {
+      "waf": 80.0,
+      "acc": 80.05,
+      "uar": 75.11,
+      "mse": 0.6591
+    },
+    "TFN high": {
+      "waf": 80.49,
+      "acc": 80.78,
+      "uar": 75.35,
+      "mse": 0.6934
+    },
+    "MulT high FRA": {
+      "waf": 80.39,
+      "acc": 80.54,
+      "uar": 77.62,
+      "mse": 0.8183
+    },
+    "Attention + class weight": {
+      "waf": 81.56,
+      "acc": 81.51,
+      "uar": 78.45,
+      "mse": 0.6327
+    }
+  },
+  "limitations": [
+    "Only high UTT/FRA features are available in the downloaded feature.zip.",
+    "LMF, MISA, TFN, and MulT local formal results are single-seed values; only Attention has the fixed-hyperparameter three-seed summary.",
+    "MISA default/random hyperparameters failed with NaN; stable hyperparameter rerun is reported separately.",
+    "Top-k / medium / low feature experiments cannot be strictly reproduced without the corresponding official feature pool.",
+    "Large pretrained feature extractors were not retrained or rerun."
+  ],
+  "pending": [
+    "top-k / medium / low feature experiments if official feature pools are obtained"
+  ],
+  "updated_at": "2026-10-16T03:40:00+08:00",
+  "completed_experiments": [
+    {
+      "name": "MulT high FRA",
+      "type": "paper_baseline",
+      "model": "mult",
+      "result_dir": "results/mult_high_fra_seed2026_resume",
+      "run_dir": "runs/mult_high_fra_seed2026_resume-trimodal",
+      "log": "runs/mult_high_fra_seed2026_resume.log",
+      "test1": {
+        "waf": 0.8039,
+        "acc": 0.8054,
+        "uar": 0.7762,
+        "mse": 0.8183
+      },
+      "paper_waf": 82.94,
+      "notes": "formal FRA run with fold-1 checkpoint restoration and batch size 16"
+    }
+  ]
+}

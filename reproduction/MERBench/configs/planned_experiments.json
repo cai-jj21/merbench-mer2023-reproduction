@@ -1,0 +1,189 @@
+{
+  "paper": "MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition",
+  "dataset": "MER2023",
+  "primary_split": "test1_corpus / MER-MULTI",
+  "local_seed": 2026,
+  "data_root": "reproduction/MERBench/data/mer2023-dataset-process",
+  "feature_set": {
+    "audio": "chinese-hubert-large-UTT",
+    "text": "Baichuan-13B-Base-UTT",
+    "visual": "clip-vit-large-patch14-UTT",
+    "audio_fra": "chinese-hubert-large-FRA",
+    "text_fra": "Baichuan-13B-Base-FRA",
+    "visual_fra": "clip-vit-large-patch14-FRA"
+  },
+  "official_reference_file": "reproduction/MERBench/results/official_mer2023_mermulti.csv",
+  "local_summary_file": "reproduction/MERBench/results/local_reproduction_summary.csv",
+  "completed_experiments": [
+    {
+      "name": "Attention high",
+      "type": "paper_baseline",
+      "model": "attention",
+      "result_dir": "results/attention_high_seed2026_ckpt",
+      "run_dir": "runs/attention_high_seed2026_ckpt-trimodal",
+      "log": "runs/attention_high_seed2026_ckpt.log",
+      "test1": {"waf": 80.45, "acc": 80.78, "uar": 75.78, "mse": 0.6253},
+      "checkpoints": 5,
+      "paper_waf": 83.03,
+      "paper_mse": 0.62
+    },
+    {
+      "name": "LMF high",
+      "type": "paper_baseline",
+      "model": "lmf",
+      "result_dir": "results/lmf_high_seed2026",
+      "run_dir": "runs/lmf_high_seed2026-trimodal",
+      "log": "runs/lmf_high_seed2026.log",
+      "test1": {"waf": 80.02, "acc": 80.05, "uar": 74.91, "mse": 0.7023},
+      "checkpoints": 0,
+      "paper_waf": 83.44,
+      "notes": "completed before checkpoint patch"
+    },
+    {
+      "name": "MISA high stable",
+      "type": "paper_baseline",
+      "model": "misa",
+      "result_dir": "results/misa_high_stable_seed2026",
+      "run_dir": "runs/misa_high_stable_seed2026-trimodal",
+      "log": "runs/misa_high_stable_seed2026.log",
+      "hyper_path": "configs/hyper_stable.yaml",
+      "test1": {"waf": 80.00, "acc": 80.05, "uar": 75.11, "mse": 0.6591},
+      "checkpoints": 5,
+      "paper_waf": 82.42,
+      "notes": "official default/random MISA run failed with NaN; stable rerun is reported honestly"
+    },
+    {
+      "name": "TFN high",
+      "type": "paper_baseline",
+      "model": "tfn",
+      "result_dir": "results/tfn_high_seed2026",
+      "run_dir": "runs/tfn_high_seed2026-trimodal",
+      "log": "runs/tfn_high_seed2026.log",
+      "test1": {"waf": 80.49, "acc": 80.78, "uar": 75.35, "mse": 0.6934},
+      "checkpoints": 5,
+      "paper_waf": 82.52
+    },
+    {
+      "name": "Audio only",
+      "type": "unimodal",
+      "model": "attention",
+      "result_dir": "results/unimodal_audio_attention_seed2026",
+      "log": "runs/unimodal_audio_attention_seed2026.log",
+      "test1": {"waf": 68.59, "acc": 68.61, "uar": 63.56, "mse": 0.9345},
+      "paper_waf": 69.91,
+      "paper_mse": 0.97
+    },
+    {
+      "name": "Text only",
+      "type": "unimodal",
+      "model": "attention",
+      "result_dir": "results/unimodal_text_attention_seed2026",
+      "log": "runs/unimodal_text_attention_seed2026.log",
+      "test1": {"waf": 60.68, "acc": 60.83, "uar": 55.36, "mse": 1.6614},
+      "paper_waf": 62.54,
+      "paper_mse": 1.63
+    },
+    {
+      "name": "Visual only",
+      "type": "unimodal",
+      "model": "attention",
+      "result_dir": "results/unimodal_visual_attention_seed2026",
+      "log": "runs/unimodal_visual_attention_seed2026.log",
+      "test1": {"waf": 60.99, "acc": 62.29, "uar": 51.87, "mse": 1.1297},
+      "paper_waf": 62.69,
+      "paper_mse": 1.12
+    },
+    {
+      "name": "Attention + class weight",
+      "type": "improvement",
+      "model": "attention",
+      "result_dir": "results/attention_high_classweight_seed2026_ckpt",
+      "run_dir": "runs/attention_high_classweight_seed2026_ckpt-trimodal",
+      "log": "runs/attention_high_classweight_seed2026_ckpt.log",
+      "test1": {"waf": 81.56, "acc": 81.51, "uar": 78.45, "mse": 0.6327},
+      "checkpoints": 5
+    },
+    {
+      "name": "Gated residual Attention",
+      "type": "improvement",
+      "model": "gated_attention",
+      "result_dir": "results/gated_residual_attention_high_seed2026_formal",
+      "run_dir": "runs/gated_residual_attention_high_seed2026_formal-trimodal",
+      "log": "runs/gated_residual_attention_high_seed2026_formal.log",
+      "hyper_path": "configs/hyper_stable.yaml",
+      "test1": {"waf": 81.21, "acc": 81.27, "uar": 77.74, "mse": 0.6369},
+      "checkpoints": 5,
+      "notes": "normalized modality reliability gates plus cross-modal residual branch; formal 100 epoch five-fold run"
+    },
+    {
+      "name": "Drop audio",
+      "type": "ablation",
+      "model": "attention",
+      "result_dir": "results/attention_high_drop_audio_seed2026",
+      "run_dir": "runs/attention_high_drop_audio_seed2026-trimodal",
+      "log": "runs/attention_high_drop_audio_seed2026.log",
+      "test1": {"waf": 74.54, "acc": 74.45, "uar": 70.15, "mse": 0.9129},
+      "checkpoints": 5
+    },
+    {
+      "name": "Drop text",
+      "type": "ablation",
+      "model": "attention",
+      "result_dir": "results/attention_high_drop_text_seed2026",
+      "run_dir": "runs/attention_high_drop_text_seed2026-trimodal",
+      "log": "runs/attention_high_drop_text_seed2026.log",
+      "test1": {"waf": 76.74, "acc": 76.89, "uar": 72.31, "mse": 0.6763},
+      "checkpoints": 5
+    },
+    {
+      "name": "Drop visual",
+      "type": "ablation",
+      "model": "attention",
+      "result_dir": "results/attention_high_drop_visual_seed2026",
+      "run_dir": "runs/attention_high_drop_visual_seed2026-trimodal",
+      "log": "runs/attention_high_drop_visual_seed2026.log",
+      "test1": {"waf": 75.22, "acc": 75.18, "uar": 71.08, "mse": 0.8886},
+      "checkpoints": 5
+    },
+    {
+      "name": "MulT high FRA",
+      "type": "paper_baseline",
+      "model": "mult",
+      "result_dir": "results/mult_high_fra_seed2026_resume",
+      "run_dir": "runs/mult_high_fra_seed2026_resume-trimodal",
+      "log": "runs/mult_high_fra_seed2026_resume.log",
+      "test1": {"waf": 80.39, "acc": 80.54, "uar": 77.62, "mse": 0.8183},
+      "paper_waf": 82.94,
+      "checkpoints": 5,
+      "notes": "formal 100 epoch five-fold FRA run; fold 1 restored from the prior partial run"
+    },
+    {
+      "name": "Attention fixed hyperparameters, three seeds",
+      "type": "statistics",
+      "model": "attention",
+      "result_dir": "results/attention_multiseed_summary.*",
+      "seeds": [2026, 2027, 2028],
+      "test1_mean": {"waf": 82.0717, "acc": 82.1573, "uar": 78.2105, "mse": 0.6240},
+      "test1_std": {"waf": 1.1534, "acc": 0.9800, "uar": 1.8271, "mse": 0.0064},
+      "notes": "fixed hyperparameters; mean and population standard deviation"
+    }
+  ],
+  "failed_or_smoke_tests": [
+    {
+      "name": "MISA high default",
+      "status": "failed",
+      "log": "runs/misa_high_seed2026.log",
+      "reason": "validation metric calculation failed because predictions contained NaN"
+    },
+    {
+      "name": "MulT FRA smoke",
+      "status": "smoke_passed",
+      "log": "runs/smoke_mult_fra_1ep-trimodal",
+      "reason": "1 epoch smoke run retained as historical evidence; formal five-fold run is recorded in completed_experiments"
+    }
+  ],
+  "pending": [
+    "top-k / medium / low feature experiments if official feature pools become available",
+    "optional calibration or noise robustness experiments"
+  ]
+}

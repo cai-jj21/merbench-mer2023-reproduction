@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_audio_attention_seed2026-unimodal\\result\\cv_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6972_acc_0.6997_val_1.0377_1791902418.9084334.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.6972,
+    "filename_acc": 0.6997,
+    "filename_val_mse": 1.0377
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_audio_attention_seed2026-unimodal\\result\\test1_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6859_acc_0.6861_val_0.9345_1791902418.9084334.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.6859,
+    "filename_acc": 0.6861,
+    "filename_val_mse": 0.9345,
+    "n_samples": 411,
+    "waf": 0.6858726299852322,
+    "accuracy": 0.6861313868613139,
+    "uar": 0.6356428175358566,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test1_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6859_acc_0.6861_val_0.9345_1791902418.9084334_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test1_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6859_acc_0.6861_val_0.9345_1791902418.9084334_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 0.9344966032466853,
+    "val_mse_valid_labels_only": 0.9344966032466853
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_audio_attention_seed2026-unimodal\\result\\test2_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6297_acc_0.6408_val_1.4150_1791902418.9084334.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.6297,
+    "filename_acc": 0.6408,
+    "filename_val_mse": 1.415,
+    "n_samples": 412,
+    "waf": 0.6297387441118389,
+    "accuracy": 0.6407766990291263,
+    "uar": 0.5253002239260199,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test2_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6297_acc_0.6408_val_1.4150_1791902418.9084334_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test2_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.6297_acc_0.6408_val_1.4150_1791902418.9084334_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 1.4150227780965163,
+    "val_mse_valid_labels_only": 1.4150227780965163
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\unimodal_audio_attention_seed2026-unimodal\\result\\test3_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.8547_acc_0.8537_val_80.0105_1791902418.9084334.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.8547,
+    "filename_acc": 0.8537,
+    "filename_val_mse": 80.0105,
+    "n_samples": 834,
+    "waf": 0.8547232051280034,
+    "accuracy": 0.8537170263788969,
+    "uar": 0.7331026396441821,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test3_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.8547_acc_0.8537_val_80.0105_1791902418.9084334_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\unimodal_audio_attention_seed2026\\test3_features_chinese-hubert-large-UTT_dataset_MER2023_model_attention+utt+None_f1_0.8547_acc_0.8537_val_80.0105_1791902418.9084334_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 80.01048367484114
+  }
+]
