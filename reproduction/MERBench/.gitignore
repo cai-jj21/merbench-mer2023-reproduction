@@ -21,6 +21,7 @@ reports/*.out
 reports/*.toc
 reports/*.fls
 reports/*.fdb_latexmk
+reports/preview_*/
 
 # Local editor and OS files
 .vscode/

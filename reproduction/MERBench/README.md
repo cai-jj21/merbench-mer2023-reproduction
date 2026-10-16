@@ -146,6 +146,23 @@ cd 'C:\Users\88911\Desktop\异构智能体'
 .\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage summary
 ```
 
+Additional official fusion models now supported by the same PowerShell script:
+
+```powershell
+# 100-epoch stable MMIM, full five-fold run
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mmim -Epochs 100 -BatchSize 32 -Seed 2026
+
+# Full-data 5-epoch MFN extension (reported separately from the paper's 100-epoch value)
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mfn -Epochs 5 -BatchSize 32 -Seed 2026
+
+# 1-epoch compatibility smoke tests for the remaining FRA sequence models
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage graph_mfn -Epochs 1 -BatchSize 16 -Seed 2026 -Debug
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mfm -Epochs 1 -BatchSize 16 -Seed 2026 -Debug
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mctn -Epochs 1 -BatchSize 16 -Seed 2026 -Debug
+```
+
+The `extended` stage runs MMIM, MFN, GMFN, MFM and MCTN sequentially. It is GPU-intensive; use the individual stages when resuming or checking one model.
+
 MulT 正式实验如果中断，可从旧 run 的已完成折继续：
 
 ```powershell

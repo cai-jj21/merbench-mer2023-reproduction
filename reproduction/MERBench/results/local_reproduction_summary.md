@@ -20,6 +20,14 @@
 | paper_baseline | MulT high FRA | test1 | 80.39 | 80.54 | 77.62 | 0.8183 | 82.94 |  | 4 |
 | paper_baseline | MulT high FRA | test2 | 76.22 | 76.46 | 69.64 | 0.7461 | 82.94 |  | 4 |
 | paper_baseline | MulT high FRA | test3 | 85.18 | 85.13 | 74.18 |  | 82.94 |  | 4 |
+| paper_baseline | MMIM high (stable) | cv | 69.37 | 69.88 |  | 0.7743 | 81.01 |  | 5 |
+| paper_baseline | MMIM high (stable) | test1 | 75.96 | 76.40 | 68.72 | 0.7084 | 81.01 |  | 5 |
+| paper_baseline | MMIM high (stable) | test2 | 69.44 | 70.15 | 60.80 | 0.6754 | 81.01 |  | 5 |
+| paper_baseline | MMIM high (stable) | test3 | 86.09 | 86.45 | 71.40 |  | 81.01 |  | 5 |
+| extended_partial | MFN high FRA (5 epochs) | cv | 55.77 | 60.93 |  | 1.0414 | 77.40 |  | 5 |
+| extended_partial | MFN high FRA (5 epochs) | test1 | 56.52 | 61.80 | 49.05 | 0.9639 | 77.40 |  | 5 |
+| extended_partial | MFN high FRA (5 epochs) | test2 | 59.16 | 64.32 | 47.47 | 0.9438 | 77.40 |  | 5 |
+| extended_partial | MFN high FRA (5 epochs) | test3 | 70.66 | 71.70 | 53.65 |  | 77.40 |  | 5 |
 | unimodal | Audio only | cv | 69.72 | 69.97 |  | 1.0377 | 69.91 | 0.97 | 0 |
 | unimodal | Audio only | test1 | 68.59 | 68.61 | 63.56 | 0.9345 | 69.91 | 0.97 | 0 |
 | unimodal | Audio only | test2 | 62.97 | 64.08 | 52.53 | 1.4150 | 69.91 | 0.97 | 0 |

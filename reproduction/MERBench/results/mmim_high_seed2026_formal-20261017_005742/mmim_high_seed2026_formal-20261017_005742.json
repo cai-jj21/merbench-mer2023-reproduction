@@ -1,0 +1,63 @@
+[
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\mmim_high_seed2026_formal-20261017_005742-trimodal\\result\\cv_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.6937_acc_0.6988_val_0.7743_1792171634.9479535.npz",
+    "split": "cv",
+    "has_predictions": false,
+    "filename_waf": 0.6937,
+    "filename_acc": 0.6988,
+    "filename_val_mse": 0.7743
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\mmim_high_seed2026_formal-20261017_005742-trimodal\\result\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.7596_acc_0.7640_val_0.7084_1792171634.9479535.npz",
+    "split": "test1",
+    "has_predictions": true,
+    "filename_waf": 0.7596,
+    "filename_acc": 0.764,
+    "filename_val_mse": 0.7084,
+    "n_samples": 411,
+    "waf": 0.7596107853111805,
+    "accuracy": 0.7639902676399026,
+    "uar": 0.6872100522567416,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.7596_acc_0.7640_val_0.7084_1792171634.9479535_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test1_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.7596_acc_0.7640_val_0.7084_1792171634.9479535_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 0.7083651477073336,
+    "val_mse_valid_labels_only": 0.7083651477073336
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\mmim_high_seed2026_formal-20261017_005742-trimodal\\result\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.6944_acc_0.7015_val_0.6754_1792171634.9479535.npz",
+    "split": "test2",
+    "has_predictions": true,
+    "filename_waf": 0.6944,
+    "filename_acc": 0.7015,
+    "filename_val_mse": 0.6754,
+    "n_samples": 412,
+    "waf": 0.6944214720403333,
+    "accuracy": 0.7014563106796117,
+    "uar": 0.6079895902420832,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.6944_acc_0.7015_val_0.6754_1792171634.9479535_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test2_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.6944_acc_0.7015_val_0.6754_1792171634.9479535_confusion_matrix.csv",
+    "val_missing_count": 0,
+    "val_mse_comparable": true,
+    "val_mse": 0.6753930740440433,
+    "val_mse_valid_labels_only": 0.6753930740440433
+  },
+  {
+    "file": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\runs\\mmim_high_seed2026_formal-20261017_005742-trimodal\\result\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.8609_acc_0.8645_val_79.6388_1792171634.9479535.npz",
+    "split": "test3",
+    "has_predictions": true,
+    "filename_waf": 0.8609,
+    "filename_acc": 0.8645,
+    "filename_val_mse": 79.6388,
+    "n_samples": 834,
+    "waf": 0.8609039758544421,
+    "accuracy": 0.8645083932853717,
+    "uar": 0.7139937896209975,
+    "classification_report": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.8609_acc_0.8645_val_79.6388_1792171634.9479535_classification_report.json",
+    "confusion_matrix": "C:\\Users\\88911\\Desktop\\异构智能体\\reproduction\\MERBench\\results\\mmim_high_seed2026_formal-20261017_005742\\test3_features_Baichuan-13B-Base-UTT+chinese-hubert-large-UTT+clip-vit-large-patch14-UTT_dataset_MER2023_model_mmim+utt+None_f1_0.8609_acc_0.8645_val_79.6388_1792171634.9479535_confusion_matrix.csv",
+    "val_missing_count": 834,
+    "val_mse_comparable": false,
+    "val_mse_all_including_placeholders": 79.63877317566192
+  }
+]

@@ -158,6 +158,33 @@
       "notes": "formal 100 epoch five-fold FRA run; fold 1 restored from the prior partial run"
     },
     {
+      "name": "MMIM high stable",
+      "type": "paper_baseline",
+      "model": "mmim",
+      "result_dir": "results/mmim_high_seed2026_formal-20261017_005742",
+      "run_dir": "runs/mmim_high_seed2026_formal-20261017_005742-trimodal",
+      "log": "runs/mmim_high_seed2026_formal-20261017_005742.log",
+      "hyper_path": "configs/hyper_mmim_stable.yaml",
+      "test1": {"waf": 75.96, "acc": 76.40, "uar": 68.72, "mse": 0.7084},
+      "paper_waf": 81.01,
+      "checkpoints": 5,
+      "notes": "formal 100 epoch five-fold run; original configuration produced NaN at epoch 43, stable run restored fold 1 from its best checkpoint"
+    },
+    {
+      "name": "MFN high FRA (5 epochs)",
+      "type": "extended_partial",
+      "model": "mfn",
+      "result_dir": "results/mfn_high_fra_seed2026_formal",
+      "run_dir": "runs/mfn_high_fra_seed2026_formal-trimodal",
+      "log": "runs/mfn_high_fra_seed2026_formal.log",
+      "hyper_path": "configs/hyper_extended.yaml",
+      "epochs": 5,
+      "test1": {"waf": 56.52, "acc": 61.80, "uar": 49.05, "mse": 0.9639},
+      "paper_waf": 77.40,
+      "checkpoints": 5,
+      "notes": "full MER2023 five-fold run, intentionally reported as a limited-epoch extension rather than the paper's 100 epoch Table IX result"
+    },
+    {
       "name": "Attention fixed hyperparameters, three seeds",
       "type": "statistics",
       "model": "attention",
@@ -180,10 +207,21 @@
       "status": "smoke_passed",
       "log": "runs/smoke_mult_fra_1ep-trimodal",
       "reason": "1 epoch smoke run retained as historical evidence; formal five-fold run is recorded in completed_experiments"
+    },
+    {
+      "name": "GMFN/MFM/MCTN FRA smoke",
+      "status": "smoke_passed",
+      "logs": [
+        "runs/graph_mfn_high_fra_seed2026.log",
+        "runs/mfm_high_fra_seed2026.log",
+        "runs/mctn_high_fra_seed2026.log"
+      ],
+      "reason": "1 epoch debug smoke runs completed with full model construction and output files; formal full-data benchmark runs remain pending"
     }
   ],
   "pending": [
     "top-k / medium / low feature experiments if official feature pools become available",
+    "formal 100 epoch GMFN/MFM/MCTN sequence-fusion experiments",
     "optional calibration or noise robustness experiments"
   ]
 }

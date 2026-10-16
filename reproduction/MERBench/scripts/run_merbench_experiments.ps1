@@ -1,10 +1,13 @@
 param(
-  [ValidateSet("verify", "attention", "lmf", "misa", "tfn", "mult", "mult_resume", "unimodal", "classweight", "improved", "drop_audio", "drop_text", "drop_visual", "ablation", "summary", "all")]
+  [ValidateSet("verify", "attention", "lmf", "misa", "tfn", "mult", "mult_resume", "mmim", "mfn", "graph_mfn", "mfm", "mctn", "extended", "unimodal", "classweight", "improved", "drop_audio", "drop_text", "drop_visual", "ablation", "summary", "all")]
   [string[]]$Stage = @("verify"),
   [int]$Epochs = 100,
   [int]$BatchSize = 32,
   [int]$Gpu = 0,
-  [int]$Seed = 2026
+  [int]$Seed = 2026,
+  [switch]$Debug,
+  [int]$StartFold = 1,
+  [string]$ResumeRoot = ""
 )
 
 $WorkspaceRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..\..")
@@ -103,6 +106,9 @@ function Invoke-MerbenchRun {
   if ($DropModalities -ne "") {
     $args += "--drop_modalities=$DropModalities"
   }
+  if ($Debug) {
+    $args += "--debug"
+  }
   if ($HyperPath -ne "") {
     $args += "--hyper_path=$HyperPath"
   }
@@ -199,6 +205,72 @@ if (Test-Stage "mult_resume") {
     -HyperPath (Join-Path $ReproRoot "configs\hyper_stable.yaml") `
     -StartFold 2 `
     -ResumeRoot (Join-Path $RunsRoot "mult_high_fra_seed${Seed}-trimodal")
+}
+
+if (Test-Stage "mmim" -or Test-Stage "extended") {
+  Invoke-MerbenchRun `
+    -RunName "mmim_high_seed${Seed}_formal" `
+    -RunSuffix "mmim_high_seed${Seed}_formal-trimodal" `
+    -Model "mmim" `
+    -RunBatchSize ([Math]::Min($BatchSize, 16)) `
+    -AudioFeature "chinese-hubert-large-UTT" `
+    -TextFeature "Baichuan-13B-Base-UTT" `
+    -VideoFeature "clip-vit-large-patch14-UTT" `
+    -HyperPath (Join-Path $ReproRoot "configs\hyper_mmim_stable.yaml") `
+    -StartFold $StartFold `
+    -ResumeRoot $ResumeRoot
+}
+
+if (Test-Stage "mfn" -or Test-Stage "extended") {
+  Invoke-MerbenchRun `
+    -RunName "mfn_high_fra_seed${Seed}_formal" `
+    -RunSuffix "mfn_high_fra_seed${Seed}_formal-trimodal" `
+    -Model "mfn" `
+    -FeatType "frm_align" `
+    -RunBatchSize ([Math]::Min($BatchSize, 4)) `
+    -AudioFeature "chinese-hubert-large-FRA" `
+    -TextFeature "Baichuan-13B-Base-FRA" `
+    -VideoFeature "clip-vit-large-patch14-FRA" `
+    -HyperPath (Join-Path $ReproRoot "configs\hyper_extended.yaml")
+}
+
+if (Test-Stage "graph_mfn" -or Test-Stage "extended") {
+  Invoke-MerbenchRun `
+    -RunName "graph_mfn_high_fra_seed${Seed}_formal" `
+    -RunSuffix "graph_mfn_high_fra_seed${Seed}_formal-trimodal" `
+    -Model "graph_mfn" `
+    -FeatType "frm_align" `
+    -RunBatchSize ([Math]::Min($BatchSize, 4)) `
+    -AudioFeature "chinese-hubert-large-FRA" `
+    -TextFeature "Baichuan-13B-Base-FRA" `
+    -VideoFeature "clip-vit-large-patch14-FRA" `
+    -HyperPath (Join-Path $ReproRoot "configs\hyper_extended.yaml")
+}
+
+if (Test-Stage "mfm" -or Test-Stage "extended") {
+  Invoke-MerbenchRun `
+    -RunName "mfm_high_fra_seed${Seed}_formal" `
+    -RunSuffix "mfm_high_fra_seed${Seed}_formal-trimodal" `
+    -Model "mfm" `
+    -FeatType "frm_align" `
+    -RunBatchSize ([Math]::Min($BatchSize, 2)) `
+    -AudioFeature "chinese-hubert-large-FRA" `
+    -TextFeature "Baichuan-13B-Base-FRA" `
+    -VideoFeature "clip-vit-large-patch14-FRA" `
+    -HyperPath (Join-Path $ReproRoot "configs\hyper_extended.yaml")
+}
+
+if (Test-Stage "mctn" -or Test-Stage "extended") {
+  Invoke-MerbenchRun `
+    -RunName "mctn_high_fra_seed${Seed}_formal" `
+    -RunSuffix "mctn_high_fra_seed${Seed}_formal-trimodal" `
+    -Model "mctn" `
+    -FeatType "frm_align" `
+    -RunBatchSize ([Math]::Min($BatchSize, 2)) `
+    -AudioFeature "chinese-hubert-large-FRA" `
+    -TextFeature "Baichuan-13B-Base-FRA" `
+    -VideoFeature "clip-vit-large-patch14-FRA" `
+    -HyperPath (Join-Path $ReproRoot "configs\hyper_extended.yaml")
 }
 
 if (Test-Stage "unimodal") {
