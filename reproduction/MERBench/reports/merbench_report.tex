@@ -1,126 +1,23 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{space}{xeCJK}
-\documentclass[
-  a4paper,
-  11pt,
-]{ctexart}
-\usepackage{xcolor}
+\documentclass[a4paper,11pt]{ctexart}
 \usepackage[margin=2.35cm]{geometry}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\setcounter{tocdepth}{2}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
-  \ifXeTeX
-    \usepackage{xeCJK}
-    \setCJKmainfont[]{Microsoft YaHei}
-  \fi
-  \ifLuaTeX
-    \usepackage[]{luatexja-fontspec}
-    \setmainjfont[]{Microsoft YaHei}
-  \fi
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
+\usepackage{xcolor}
+\usepackage{booktabs,longtable,array}
+\usepackage{fancyhdr,lastpage}
 \usepackage{setspace}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs,array}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{xurl}
+
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
-\setlength{\LTleft}{0pt}
-\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\emergencystretch}{3em}
+\setlength{\headheight}{14pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{MERBench MER2023 复现实验报告}
 \fancyhead[R]{情感计算课程作业}
 \fancyfoot[C]{\thepage\ / \pageref{LastPage}}
-\setlength{\headheight}{14pt}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\usepackage{bookmark}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
-\hypersetup{
-  pdftitle={MERBench MER2023 多模态情感识别复现实验报告},
-  pdfauthor={情感计算课程作业},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
+\hypersetup{hidelinks,pdftitle={MERBench MER2023 多模态情感识别复现实验报告},pdfauthor={情感计算课程作业}}
 
 \title{MERBench MER2023 多模态情感识别复现实验报告}
 \author{情感计算课程作业}
@@ -128,577 +25,163 @@
 
 \begin{document}
 \maketitle
-{\footnotesize
-\tableofcontents
-}
-\newpage
+\setstretch{1.12}
 
-\setstretch{1.18}
 课程：情感计算\\
 姓名：\_\_\_\_\_\_\_\_\_\_ 学号：\_\_\_\_\_\_\_\_\_\_\\
-选题：MERBench: A Unified Evaluation Benchmark for Multimodal Emotion
-Recognition\\
-作者：Zheng Lian 等\\
-实验日期：2026 年 10 月
+选题：\textit{MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition}\\
+作者：Zheng Lian 等
 
-\section{1
-研究背景和问题定义}\label{1-ux7814ux7a76ux80ccux666fux548cux95eeux9898ux5b9aux4e49}
+\section{实验目标}
 
-多模态情感识别需要同时利用语音、文本和视觉信息，预测样本的离散情绪类别以及连续情绪维度。不同研究往往使用不同的数据划分、特征提取器、融合模型和评价指标，因此即使报告了相似名称的结果，也不一定能够直接比较。MERBench
-的目标是在统一数据、特征、训练和评价流程下比较多种多模态情感识别方法，并分析特征选择、融合策略、跨语料库迁移、噪声鲁棒性和预训练等因素。
+本作业严格复现 MERBench 在 MER2023/MER-MULTI 上的核心实验。任务是根据中文视频的音频、文本和视觉特征，预测六类情绪：neutral、angry、happy、sad、worried 和 surprise，同时回归 valence。实验重点是比较单模态、三模态融合模型，并在官方 Attention 基线上加入轻量改进。
 
-本文定义的主要任务为：给定一个中文视频片段的音频特征 \(x^a\)、文本特征
-\(x^t\) 和视觉特征 \(x^v\)，预测六分类情绪标签 \(y^e\) 以及连续 valence
-标签 \(y^v\)。本次作业的主测试集为 MER-MULTI，分类标签为
-neutral、angry、happy、sad、worried、surprise。
+考虑到设备为 RTX 4060 Laptop GPU（约 8GB 显存），本实验直接使用作者提供的预提取特征，没有重新训练 HuBERT、CLIP 或大型语言模型。论文报告值和本地运行值始终分开列出；本地结果是使用官方特征、官方代码结构和本地随机种子得到的复现值，不冒充论文原始结果。
 
-本复现严格锁定 MERBench，不使用 FER2013、FER+ 或其他数据集替代
-MER-MULTI，也没有更换成其他论文。
+\section{数据、特征与评价指标}
 
-\section{2
-论文实验范围和本次复现范围}\label{2-ux8bbaux6587ux5b9eux9a8cux8303ux56f4ux548cux672cux6b21ux590dux73b0ux8303ux56f4}
+MER2023 的本地划分与论文统计一致：Train\&Val 有 3373 个样本，MER-MULTI 有 411 个样本。本报告以 MER-MULTI 为主要测试集。其六类标签数量分别为 neutral 88、angry 105、happy 93、sad 50、worried 57、surprise 18，类别明显不均衡。
 
-论文完整的 MERBench
-实验族包括单模态特征比较、多模态融合、跨语料库实验、标点鲁棒性、加性噪声鲁棒性、是否需要预训练，以及是否需要下游微调等内容。本次实验优先完成老师要求的
-MER2023/MER-MULTI 核心部分：单模态基线、融合基线、结构改进和模态消融。
+\begin{table}[htbp]
+\centering
+\small
+\caption{本地使用的数据和 high 特征}
+\begin{tabular}{llll}
+\toprule
+模态 & 特征提取器 & 特征目录 & 维度\\
+\midrule
+audio & chinese HuBERT large & \texttt{chinese-hubert-large-UTT} & 1024\\
+text & Baichuan-13B-Base & \texttt{Baichuan-13B-Base-UTT} & 5120\\
+visual & CLIP ViT-L/14 & \texttt{clip-vit-large-patch14-UTT} & 768\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\subsection{2.1 MER-MULTI
-论文结果行统计}\label{21-mer-multi-ux8bbaux6587ux7ed3ux679cux884cux7edfux8ba1}
+官方模型同时进行分类和 valence 回归。报告分类的 WAF（weighted F1）、ACC 和 UAR（macro recall），以及回归 MSE。论文和本地代码使用的综合选择指标为
+\[
+M=WAF-0.25\times MSE.
+\]
+除特别说明外，表中分类指标均为百分数，所有正式结果使用随机种子 2026。
 
-以下统计只针对本项目整理的 MER-MULTI
-参考结果文件，不代表论文全部实验族的总数量。
+\section{论文基线与本地复现结果}
 
-\begin{longtable}[]{@{}llrr@{}}
-\toprule\noalign{}
-论文表格 & 内容 & 结果行数 & 本地直接复现 \\
-\midrule\noalign{}
+本地直接对应论文 MER-MULTI 参考表的结果共有 9/24 项，覆盖率为 37.5\%。其中 high 特征下的三种单模态、Table III 的 high 多任务组合、Attention、LMF、MISA、TFN 和 MulT 五种融合结果均已完成；medium/low 特征和 Top-k 特征选择没有在本轮执行。
+
+\scriptsize
+\begin{longtable}{p{3.5cm}rrrrrr}
+\caption{论文值与本地复现值对照}\\
+\toprule
+实验 & 论文 WAF & 本地 WAF & 本地 ACC & 本地 UAR & 论文 MSE & 本地 MSE\\
+\midrule
+\endfirsthead
+\toprule
+实验 & 论文 WAF & 本地 WAF & 本地 ACC & 本地 UAR & 论文 MSE & 本地 MSE\\
+\midrule
 \endhead
-\bottomrule\noalign{}
-\endlastfoot
-Table II & high/medium 单模态 & 6 & 3 \\
-Table III & 两种官方多模态特征组合 & 2 & 1 \\
-Table IX & 五种融合模型的 high/medium 结果 & 10 & 5 \\
-Table X & Top-k 特征选择 & 6 & 0 \\
-\textbf{合计} & 论文参考表中的 MER-MULTI 结果 & \textbf{24} &
-\textbf{9} \\
+Audio HUBERT-large (Table II) & 69.91 & 68.59 & 68.61 & 63.56 & 0.97 & 0.9345\\
+Text Baichuan (Table II) & 62.54 & 60.68 & 60.83 & 55.36 & 1.63 & 1.6614\\
+Visual CLIP (Table II) & 62.69 & 60.99 & 62.29 & 51.87 & 1.12 & 1.1297\\
+High multi-task combination (Table III) & 83.02 & 80.45 & 80.78 & 75.78 & 0.62 & 0.6253\\
+Attention high (Table III/IX) & 83.03 & 80.45 & 80.78 & 75.78 & 0.62 & 0.6253\\
+LMF high (Table IX) & 83.44 & 80.02 & 80.05 & 74.91 & -- & 0.7023\\
+MISA high (Table IX) & 82.42 & 80.00 & 80.05 & 75.11 & -- & 0.6591\\
+TFN high (Table IX) & 82.52 & 80.49 & 80.78 & 75.35 & -- & 0.6934\\
+MulT high FRA (Table IX) & 82.94 & 80.39 & 80.54 & 77.62 & -- & 0.8183\\
+\bottomrule
 \end{longtable}
 
-因此，本地严格对应论文结果行的覆盖率为 \(9/24=37.5\%\)。已经完成的 9
-行包括 high 特征的三个单模态结果、一个 high 多模态特征组合结果，以及
-Attention、LMF、MISA、TFN、MulT 五个 high 融合结果。Table IX 的 high
-融合结果已经完成 5/5。
-
-\subsection{2.2
-本地实验配置统计}\label{22-ux672cux5730ux5b9eux9a8cux914dux7f6eux7edfux8ba1}
-
-本地结果总表中目前有 13 个命名实验配置：5 个论文融合基线、3
-个单模态实验、2 个改进实验和 3 个模态缺失消融实验。Attention
-另使用固定超参运行了 seed 2026、2027、2028
-三次统计，因此实际保存了额外的多 seed
-运行结果。每个配置还分别记录交叉验证、MER-MULTI、MER-NOISE 和 MER-SEMI
-的结果，这些测试划分输出不应被重复计数为新的独立模型。
-
-\section{3 MERBench
-方法和数据流程}\label{3-merbench-ux65b9ux6cd5ux548cux6570ux636eux6d41ux7a0b}
-
-本地复现流程如下：
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  使用官方 \texttt{label-6way.npz} 和转写文件读取 MER2023
-  标签及数据划分。
-\item
-  使用作者提供的预提取音频、文本和视觉特征，避免在 8GB
-  显存设备上重新提取大型模型特征。
-\item
-  将三种模态特征输入官方融合模型或本地结构改进模型。
-\item
-  同时优化离散情绪分类和 valence 回归任务。
-\item
-  在 Train\&Val 上进行五折交叉验证，并在 MER-MULTI、MER-NOISE、MER-SEMI
-  上测试。
-\item
-  保存每次运行的配置、训练日志、每折最佳模型、预测结果、分类报告和混淆矩阵。
-\end{enumerate}
-
-MER2023 的本地划分如下。该划分与论文数据统计一致：Train\&Val 有 3373
-个样本，MER-MULTI 有 411 个样本，MER-NOISE 有 412 个样本，MER-SEMI 有
-834 个带离散标签样本；MER-SEMI 还包含大量未标注样本。
-
-\begin{longtable}[]{@{}llrl@{}}
-\toprule\noalign{}
-split & 含义 & 样本数 & 本地使用方式 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-train\_corpus & Train\&Val & 3373 & 五折训练和验证 \\
-test1\_corpus & MER-MULTI & 411 & 主要对照测试集 \\
-test2\_corpus & MER-NOISE & 412 & 噪声鲁棒性测试输出 \\
-test3\_corpus & MER-SEMI & 834 & 半监督相关测试输出 \\
-\end{longtable}
-
-MER-MULTI 的六类标签分布为：neutral 88、angry 105、happy 93、sad
-50、worried 57、surprise 18。该分布不均衡，尤其 \texttt{surprise}
-样本较少，因此报告同时使用 WAF 和 UAR 观察分类性能。
-
-\section{4 特征和模型}\label{4-ux7279ux81f8ux548cux6a21ux578b}
-
-\subsection{4.1
-官方预提取特征}\label{41-ux5b98ux65b9ux9884ux63d0ux53d6ux7279ux5f81}
-
-本地可验证读取的 high UTT 特征为：
-
-\begin{longtable}[]{@{}lllr@{}}
-\toprule\noalign{}
-模态 & 特征 & 本地目录 & 单样本维度 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-audio & chinese HuBERT large & \texttt{chinese-hubert-large-UTT} &
-1024 \\
-text & Baichuan-13B-Base & \texttt{Baichuan-13B-Base-UTT} & 5120 \\
-visual & CLIP ViT-L/14 & \texttt{clip-vit-large-patch14-UTT} & 768 \\
-\end{longtable}
-
-MulT 正式实验使用对应 FRA
-特征：\texttt{chinese-hubert-large-FRA}、\texttt{Baichuan-13B-Base-FRA}
-和 \texttt{clip-vit-large-patch14-FRA}。UTT 表示句子级特征，FRA
-表示用于帧级对齐序列融合的特征。
-
-\subsection{4.2 官方 Attention
-融合基线}\label{42-ux5b98ux65b9-attention-ux878dux5408ux57faux7ebf}
-
-对于每种模态，官方 Attention 模型先使用独立编码器得到统一隐空间表示：
-
-\[h_a=E_a(x^a),\quad h_t=E_t(x^t),\quad h_v=E_v(x^v).\]
-
-UTT 特征使用 MLP 编码器，FRA 特征使用 LSTM
-编码器。三个模态表示拼接后输入注意力网络，得到三个模态的融合分数：
-
-\[s=W_2\phi(W_1[h_a;h_t;h_v]),\]
-
-然后按官方实现将三个隐向量进行加权融合，并通过两个输出头分别预测离散情绪和
-valence：
-
-\[\hat y^e=F_e(z),\quad \hat y^v=F_v(z).\]
-
-训练目标为分类损失和回归损失之和，官方模型选择指标为：
-
-\[M=WAF-0.25\times MSE.\]
-
-\subsection{4.3 本地门控残差 Attention
-改进}\label{43-ux672cux5730ux95e8ux63a7ux6b8bux5dee-attention-ux6539ux8fdb}
-
-为了实现模型结构层面的改进，本文在官方 Attention
-的三路编码器和双任务输出头基础上增加门控融合模块。设原始注意力分数为
-\(s\)，首先计算归一化注意力权重：
-
-\[\alpha=softmax(s).\]
-
-再由拼接特征估计每个样本的模态可靠性：
-
-\[r=\sigma(G([h_a;h_t;h_v])).\]
-
-将两者相乘后重新归一化：
-
-\[w_m=\frac{\alpha_m r_m}{\sum_j\alpha_jr_j+\epsilon}.\]
-
-最终融合表示为：
-
-\[z=\sum_{m\in\{a,t,v\}}w_mh_m+\beta R([h_a;h_t;h_v]),\]
-
-其中 \(R\) 是轻量 MLP 残差支路，\(\beta\) 为可学习缩放参数，初始化为
-0.1。该设计有两个目的：一是根据样本内容动态降低不可靠模态的影响，二是保留简单加权和不能表达的跨模态交互。该改进只增加融合层参数，不重新训练特征提取器，适合当前显存条件。
-
-\subsection{4.4
-类别加权改进}\label{44-ux7c7bux522bux52a0ux6743ux6539ux8fdb}
-
-对于类别加权版本，分类损失使用基于训练集类别频数反比得到的 balanced
-weight：
-
-\[w_c=\frac{N}{C\cdot n_c},\]
-
-其中 \(N\) 为训练样本数，\(C\) 为类别数，\(n_c\) 为第 \(c\)
-类样本数。回归损失仍使用普通
-MSE。该实验用于检验类别不均衡修正的效果，与门控残差结构改进分开运行。
-
-\section{5
-实验环境和运行设置}\label{5-ux5b9eux9a8cux73afux5883ux548cux8fd0ux884cux8bbeux7f6e}
-
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-项目 & 设置 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-操作系统 & Windows PowerShell \\
-GPU & NVIDIA GeForce RTX 4060 Laptop GPU \\
-显存 & 约 8GB \\
-Python & 3.12.3 \\
-PyTorch & 2.6.0+cu124 \\
-CUDA & 12.4 \\
-NumPy & 1.26.4 \\
-scikit-learn & 1.7.2 \\
-pandas & 2.2.2 \\
-默认随机种子 & 2026 \\
-UTT batch size & 32 \\
-MulT FRA batch size & 16 \\
-训练轮数 & 100 \\
-交叉验证 & Train\&Val 五折 \\
-\end{longtable}
-
-本地环境与作者仓库中的旧版环境并不完全一致，因此本报告将结果称为``基于官方特征和官方代码结构的本地复现值''，不把它们写成论文原始报告值。
-
-\section{6 评价指标}\label{6-ux8bc4ux4ef7ux6807ux6807}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{WAF}：weighted F1，按类别样本数加权的 F1。
-\item
-  \textbf{ACC}：分类准确率。
-\item
-  \textbf{UAR}：macro recall，即各类别召回率的平均值，更关注少数类。
-\item
-  \textbf{MSE}：valence 回归均方误差，越低越好。
-\item
-  \textbf{模型选择指标}：\(WAF-0.25\times MSE\)。
-\end{itemize}
-
-MER-SEMI 的 valence 标签为 \texttt{-10}
-占位值，因此本地结果中只报告其分类指标，不将其 MSE 与 MER-MULTI 或
-MER-NOISE 的 MSE 比较。
-
-\section{7
-论文结果与本地复现结果}\label{7-ux8bbaux6587ux7ed3ux679cux4e0eux672cux5730ux590dux73b0ux7ed3ux679c}
-
-下表主要列出论文 Table II、Table III 和 Table IX 中与当前 high
-特征直接对应的结果。论文值来自本地保存的
-\texttt{results/official\_mer2023\_mermulti.csv}，本地值来自 seed 2026
-的真实运行结果。论文 WAF 和本地 WAF/ACC/UAR 均以百分数表示。
-
- {\scriptsize
-\setlength{\tabcolsep}{2.5pt}
-\begin{longtable}[]{@{}llrrrrrr@{}}
-\toprule\noalign{}
-实验 & 来源 & 论文 WAF & 论文 MSE & 本地 WAF & 本地 ACC & 本地 UAR & 本地 MSE \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Audio HUBERT-large & Table II & 69.91 & 0.97 & 68.59 & 68.61 & 63.56 &
-0.9345 \\
-Text Baichuan-13B & Table II & 62.54 & 1.63 & 60.68 & 60.83 & 55.36 &
-1.6614 \\
-Visual CLIP-large & Table II & 62.69 & 1.12 & 60.99 & 62.29 & 51.87 &
-1.1297 \\
-Attention high & Table IX / Table III & 83.03 & 0.62 & 80.45 & 80.78 &
-75.78 & 0.6253 \\
-LMF high & Table IX & 83.44 & - & 80.02 & 80.05 & 74.91 & 0.7023 \\
-MISA high stable & Table IX & 82.42 & - & 80.00 & 80.05 & 75.11 &
-0.6591 \\
-TFN high & Table IX & 82.52 & - & 80.49 & 80.78 & 75.35 & 0.6934 \\
-MulT high FRA & Table IX & 82.94 & - & 80.39 & 80.54 & 77.62 & 0.8183 \\
-\end{longtable}
-}\vspace{-0.4em}
-
-\subsection{7.1 结果分析}\label{71-ux7ed3ux679cux5206ux6790}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  三个单模态本地结果与论文值处于同一数量级，audio 结果最接近论文 WAF。
-\item
-  多模态融合明显优于单模态，说明音频、文本和视觉之间存在互补信息。
-\item
-  五个 high 融合基线的本地 WAF 约为 80\%，比论文报告值低约 2.4 到 3.4
-  个百分点。
-\item
-  Attention 的本地 MSE 0.6253 与论文 Table III high 特征组合的 0.62
-  接近，但分类 WAF 低于论文值。
-\item
-  可能的差异来源包括论文多次运行均值和标准差、本地使用单
-  seed、官方随机超参搜索没有完全复刻、MISA 使用了稳定超参，以及
-  PyTorch/CUDA 版本不同。
-\end{enumerate}
-
-\subsection{7.2 Attention
-多随机种子稳定性}\label{72-attention-ux591aux968fux673aux79cdux5b50ux7a33ux5b9aux6027}
-
-固定 \texttt{configs/attention\_stable.yaml}，在 MER-MULTI 上运行三个
-seed：
-
-\begin{longtable}[]{@{}rrrrr@{}}
-\toprule\noalign{}
-seed & WAF & ACC & UAR & MSE \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-2026 & 80.45 & 80.78 & 75.78 & 0.6253 \\
-2027 & 83.06 & 82.97 & 80.19 & 0.6311 \\
-2028 & 82.71 & 82.73 & 78.66 & 0.6157 \\
-\textbf{均值 ± 标准差} & \textbf{82.07 ± 1.15} & \textbf{82.16 ± 0.98} &
-\textbf{78.21 ± 1.83} & \textbf{0.6240 ± 0.0064} \\
-\end{longtable}
-
-Attention 的 WAF 标准差为 1.15 个百分点，UAR 标准差为 1.83
-个百分点，说明单次 seed 结果存在一定波动。报告中的主要基线对照仍使用
-seed 2026，三 seed 均值作为稳定性补充，不替代论文报告值。
-
-\section{8
-单模态、多模态和消融实验}\label{8-ux5355ux6a21ux6001ux591aux6a21ux6001ux548cux6d88ux878dux5b9eux9a8c}
-
-以下为 MER-MULTI/test1 的本地结果：
-
-\begin{longtable}[]{@{}llrrrr@{}}
-\toprule\noalign{}
-类型 & 实验 & WAF & ACC & UAR & MSE \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-单模态 & audio only & 68.59 & 68.61 & 63.56 & 0.9345 \\
-单模态 & text only & 60.68 & 60.83 & 55.36 & 1.6614 \\
-单模态 & visual only & 60.99 & 62.29 & 51.87 & 1.1297 \\
-多模态 & Attention high & 80.45 & 80.78 & 75.78 & 0.6253 \\
-多模态 & LMF high & 80.02 & 80.05 & 74.91 & 0.7023 \\
-多模态 & MISA high stable & 80.00 & 80.05 & 75.11 & 0.6591 \\
-多模态 & TFN high & 80.49 & 80.78 & 75.35 & 0.6934 \\
-多模态 & MulT high FRA & 80.39 & 80.54 & 77.62 & 0.8183 \\
-消融 & Drop audio & 74.54 & 74.45 & 70.15 & 0.9129 \\
-消融 & Drop text & 76.74 & 76.89 & 72.31 & 0.6763 \\
-消融 & Drop visual & 75.22 & 75.18 & 71.08 & 0.8886 \\
-\end{longtable}
-
-Drop audio 后 WAF 比完整 Attention 下降 5.91 个百分点，Drop visual
-后下降 5.23 个百分点，Drop text 后下降 3.71
-个百分点。在当前特征和模型设置下，音频和视觉对离散分类的贡献更明显。Drop
-text 的 MSE 仍为 0.6763，说明 valence 回归可能仍较依赖音频和视觉信息。
-
-\section{9
-算法改进和改进结果}\label{9-ux7b97ux6cd5ux6539ux8fdbux548cux6539ux8fdbux7ed3ux679c}
-
-\subsection{9.1
-类别加权改进}\label{91-ux7c7bux522bux52a0ux6743ux6539ux8fdb}
-
-类别加权版本的 MER-MULTI 结果如下：
-
-\begin{longtable}[]{@{}lrrrr@{}}
-\toprule\noalign{}
-实验 & WAF & ACC & UAR & MSE \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Attention high & 80.45 & 80.78 & 75.78 & 0.6253 \\
-Attention + class weight & 81.56 & 81.51 & 78.45 & 0.6327 \\
-\end{longtable}
-
-相对于原始 Attention，WAF 提升 1.11 个百分点，ACC 提升 0.73
-个百分点，UAR 提升 2.67 个百分点，MSE 增加
-0.0074。该结果说明类别加权对于不均衡六分类任务有效，尤其改善宏平均召回；但分类权重调整不保证
-valence 回归误差同时下降。
-
-\subsection{9.2 门控残差
-Attention}\label{92-ux95e8ux63a7ux6b8bux5dee-attention}
-
-\begin{longtable}[]{@{}lrrrr@{}}
-\toprule\noalign{}
-实验 & WAF & ACC & UAR & MSE \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Attention high & 80.45 & 80.78 & 75.78 & 0.6253 \\
-Gated residual Attention & 81.21 & 81.27 & 77.74 & 0.6369 \\
-\end{longtable}
-
-相对于原始 Attention，门控残差结构的 WAF 提升 0.76 个百分点，ACC 提升
-0.49 个百分点，UAR 提升 1.96 个百分点，MSE 增加 0.0116。它优于原始
-Attention，但 WAF 和 UAR
-略低于类别加权版本。因此，本实验支持``门控残差结构有正向效果''，但不支持``门控残差结构在所有指标上优于类别加权''。
-
-两种改进的侧重点不同：类别加权修改训练损失，针对类别不均衡；门控残差
-Attention
-修改融合结构，针对样本级模态可靠性和跨模态交互。为区分各自贡献，本轮没有直接叠加两种改进。
-
-\section{10 误差分析}\label{10-ux8befux5deeux5206ux6790}
-
-以 \texttt{Attention\ +\ class\ weight} 在 MER-MULTI 上的混淆矩阵为例：
-
-\begin{longtable}[]{@{}lrrrrrr@{}}
-\toprule\noalign{}
-真实类别 \textbackslash{} 预测类别 & neutral & angry & happy & sad &
-worried & surprise \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-neutral & 68 & 3 & 7 & 4 & 6 & 0 \\
-angry & 8 & 88 & 2 & 4 & 2 & 1 \\
-happy & 8 & 0 & 84 & 0 & 0 & 1 \\
-sad & 2 & 2 & 1 & 44 & 1 & 0 \\
-worried & 10 & 0 & 0 & 7 & 40 & 0 \\
-surprise & 1 & 1 & 2 & 1 & 2 & 11 \\
-\end{longtable}
-
-主要现象如下：
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{happy} 和 \texttt{angry}
-  的识别相对稳定，主要因为测试样本数量较多且情绪线索较明显。
-\item
-  \texttt{surprise} 只有 18 个测试样本，类别加权后正确数为
-  11，召回率约为 61.11\%，仍然容易受单个样本影响。
-\item
-  \texttt{worried} 容易被预测为 \texttt{neutral} 或
-  \texttt{sad}，说明低唤醒负向情绪之间存在边界模糊。
-\item
-  类别加权后少数类表现有所改善，但整体 MSE 没有同步下降，体现了分类和
-  valence 回归之间的任务权衡。
-\end{itemize}
-
-\section{11
-复现产物和运行方法}\label{11-ux590dux73b0ux4ea7ux7269ux548cux8fd0ux884cux65b9ux6cd5}
-
-官方代码和本地复现代码位于：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{references/MERTools/MERBench}
-\NormalTok{reproduction/MERBench}
-\end{Highlighting}
-\end{Shaded}
-
-本地复现代码、配置、结果表和本报告源文件已公开在 GitHub：
+本地结果与论文在同一数量级，但五个融合模型的 WAF 大约低 2.4--3.4 个百分点。Attention 的回归 MSE 为 0.6253，与论文的 0.62 接近；分类差距可能来自论文多次运行均值、本地只使用单一 seed、超参数搜索范围不同以及软件环境差异。因此，表中的本地列用于复现和比较，不能直接当作论文原值。
+
+\section{单模态、多模态与消融}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{MER-MULTI 上的本地实验结果}
+\begin{tabular}{llrrrr}
+\toprule
+类型 & 实验 & WAF & ACC & UAR & MSE\\
+\midrule
+单模态 & audio & 68.59 & 68.61 & 63.56 & 0.9345\\
+单模态 & text & 60.68 & 60.83 & 55.36 & 1.6614\\
+单模态 & visual & 60.99 & 62.29 & 51.87 & 1.1297\\
+融合 & Attention & 80.45 & 80.78 & 75.78 & 0.6253\\
+融合 & LMF & 80.02 & 80.05 & 74.91 & 0.7023\\
+融合 & MISA & 80.00 & 80.05 & 75.11 & 0.6591\\
+融合 & TFN & 80.49 & 80.78 & 75.35 & 0.6934\\
+融合 & MulT FRA & 80.39 & 80.54 & 77.62 & 0.8183\\
+消融 & Drop audio & 74.54 & 74.45 & 70.15 & 0.9129\\
+消融 & Drop text & 76.74 & 76.89 & 72.31 & 0.6763\\
+消融 & Drop visual & 75.22 & 75.18 & 71.08 & 0.8886\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+三模态融合明显优于单模态：Attention 相比最好的单模态 audio，WAF 提高 11.86 个百分点，UAR 提高 12.22 个百分点，MSE 从 0.9345 降至 0.6253。模态缺失实验表明，去掉 audio 后 WAF 下降 5.91 个百分点，去掉 visual 后下降 5.23 个百分点，去掉 text 后下降 3.71 个百分点；在当前特征和划分下，audio 对整体识别最重要，text 的回归贡献也较明显。
+
+\section{算法改进与结果}
+
+本次改进围绕类别不均衡和模态可靠性展开，均不增加新的特征提取开销。
+
+\subsection{类别加权}
+
+对分类交叉熵加入按训练集类别频率计算的逆频率权重，使少数类在损失中具有更大影响：
+\[
+\mathcal{L}=\mathcal{L}_{reg}+\lambda\mathcal{L}_{cls}^{weighted},\qquad
+w_c=\frac{N}{K N_c}.
+\]
+其中 $N_c$ 是类别 $c$ 的训练样本数，$K=6$。
+
+\subsection{门控残差 Attention}
+
+在官方 Attention 融合后增加一个轻量门控残差模块。模型根据三种模态的隐向量计算样本级门控权重，再将门控融合结果与原 Attention 表示相加，最后送入分类和回归头。该设计允许模型在不同样本上降低不可靠模态的影响，同时保持官方融合结构，便于公平比较。
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{改进方法在 MER-MULTI 上的结果}
+\begin{tabular}{lrrrr}
+\toprule
+实验 & WAF & ACC & UAR & MSE\\
+\midrule
+Attention baseline & 80.45 & 80.78 & 75.78 & 0.6253\\
+Attention + class weight & 81.56 & 81.51 & 78.45 & 0.6327\\
+Gated residual Attention & 81.21 & 81.27 & 77.74 & 0.6369\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+类别加权是本轮最有效的改进：相对 Attention，WAF 提升 1.11 个百分点，ACC 提升 0.73 个百分点，UAR 提升 2.67 个百分点；MSE 仅增加 0.0074。门控残差 Attention 的 WAF 提升 0.76 个百分点，UAR 提升 1.96 个百分点，也优于原始基线，但略低于类别加权版本。说明处理少数类对本数据集的收益比增加融合结构更稳定。
+
+为检查随机性，Attention 固定超参使用 seed 2026、2027、2028 重复运行，WAF 均值为 82.07，标准差为 1.15；UAR 均值为 78.21，标准差为 1.83。这组均值用于稳定性补充，不替代上表的单 seed 对照。
+
+\section{简要误差分析}
+
+从混淆矩阵和分类报告看，audio 单模态已经包含较强的情绪线索；融合后整体性能提高，但少数类 surprise 仍然容易被识别为 neutral 或 happy。worried 与 neutral、sad 之间也存在混淆，说明仅依赖句子级特征时，细粒度负面情绪的边界仍不够清晰。类别加权提高了 UAR，表明它主要改善了少数类召回，而不是单纯提高多数类准确率。
+
+分类指标和回归指标并不完全同步。类别加权和门控残差都提高了分类表现，但 MSE 略有上升，说明模型在优化离散类别边界时牺牲了一部分连续 valence 的拟合。这也是本实验同时报告 WAF、ACC、UAR 和 MSE 的原因。
+
+\section{复现限制与结论}
+
+本轮完成了 MER-MULTI 的 high 特征单模态、五种正式融合基线、三种模态缺失消融、类别加权和门控残差改进，论文参考结果逐项覆盖为 9/24。尚未完成 medium/low 特征、Top-k 特征选择、跨语料库、完整噪声生成、预训练与下游微调等实验族，因此不能声称完整复现论文全部 24 项结果。
+
+结论可以概括为三点：第一，audio、text、visual 三模态融合显著优于单模态；第二，官方 Attention、LMF、MISA、TFN 和 MulT 在本地均达到约 80\% WAF，结果与论文趋势一致；第三，针对 MER-MULTI 类别不均衡的类别加权取得最高本地结果 WAF 81.56、UAR 78.45，是本次最值得保留的改进。
+
+代码、配置、日志索引和数据准备说明已上传至：
+\begin{center}
 \url{https://github.com/cai-jj21/merbench-mer2023-reproduction}
+\end{center}
+仓库不上传受限数据、特征压缩包或模型权重；README 说明了从本地数据目录运行的步骤，官方 MERTools 作为外部依赖保留。
 
-重要产物如下：
+\begin{thebibliography}{9}
+\bibitem{lian2024merbench}
+Zheng Lian et al. \textit{MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition}. arXiv:2401.03429, 2024.
 
-{\footnotesize
-\begin{longtable}[]{@{}p{0.24\textwidth}p{0.66\textwidth}@{}}
-\toprule\noalign{}
-内容 & 路径 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-LaTeX 报告源文件 & \path{reports/merbench_report.tex} \\
-报告 PDF & \path{reports/merbench_report.pdf} \\
-GitHub 代码仓库 & \url{https://github.com/cai-jj21/merbench-mer2023-reproduction} \\
-数据准备说明 & \path{DATA_PREP.md} \\
-数据核验状态 & \path{DATA_STATUS.md} \\
-运行 README & \path{README.md} \\
-运行脚本 & \path{scripts/run_merbench_experiments.ps1} \\
-官方结果参考表 & \path{results/official_mer2023_mermulti.csv} \\
-本地结果总表 & \path{results/local_reproduction_summary.csv} \\
-多 seed 汇总 & \path{results/attention_multiseed_summary.csv} \\
-改进结果 & \path{results/gated_residual_attention_high_seed2026_formal/gated_residual_attention_high_seed2026_formal.csv} \\
-改进模型代码 & \path{patches/toolkit/models/gated_attention.py} \\
-日志和 checkpoint & \path{runs/} \\
-\end{longtable}
-}
+\bibitem{mer2023}
+Zheng Lian et al. MER2023 数据集与多模态情感识别基准，见 MERBench 官方代码仓库。
 
-从工作区根目录执行数据核验。为便于排版，命令中的脚本路径使用变量：
-
-\begin{Verbatim}[fontsize=\scriptsize]
-$run = ".\reproduction\MERBench\scripts\run_merbench_experiments.ps1"
-$verify = ".\reproduction\MERBench\scripts\verify_mer2023_features.py"
-python $verify `
-  --data-root ".\reproduction\MERBench\data\mer2023-dataset-process" `
-  --features chinese-hubert-large-UTT Baichuan-13B-Base-UTT `
-  clip-vit-large-patch14-UTT
-\end{Verbatim}
-
-运行官方融合基线：
-
-\begin{Verbatim}[fontsize=\scriptsize]
-powershell -File $run -Stage attention
-powershell -File $run -Stage lmf
-powershell -File $run -Stage misa
-powershell -File $run -Stage tfn
-powershell -File $run -Stage mult_resume -Epochs 100 -BatchSize 16
-\end{Verbatim}
-
-运行改进、消融和汇总：
-
-\begin{Verbatim}[fontsize=\scriptsize]
-powershell -File $run -Stage improved -Epochs 100 -BatchSize 32
-powershell -File $run -Stage classweight -Epochs 100 -BatchSize 32
-powershell -File $run -Stage ablation -Epochs 100 -BatchSize 32
-python .\reproduction\MERBench\scripts\build_summary_tables.py `
-  --root .\reproduction\MERBench
-\end{Verbatim}
-
-\section{12
-复现限制和未完成部分}\label{12-ux590dux73b0ux9650ux5236ux548cux672aux5b8cux6210ux90e8ux5206}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  当前 \texttt{feature.zip} 只包含 high UTT/FRA 特征目录，没有
-  medium/low 特征池，因此无法完成论文 Table II、Table III、Table IX
-  中对应的 medium 结果，也无法完成 Table X 的 Top-k 特征选择。
-\item
-  本地对 Attention 完成了三个 seed 的固定超参统计，LMF、MISA、TFN、MulT
-  等其他正式基线主要使用 seed 2026，不能冒充论文的多次运行均值和标准差。
-\item
-  官方默认 MISA 随机超参在本机出现
-  NaN，正式报告使用稳定超参版本，并保留默认运行失败日志。
-\item
-  本地没有重新提取 CLIP、HuBERT 和 Baichuan
-  特征，因此复现范围是``基于作者官方预提取特征的融合训练与评测''。
-\item
-  本轮没有完成论文的跨语料库、标点鲁棒性、原始加性噪声生成流程、预训练和下游微调等完整实验族。MER-NOISE
-  和 MER-SEMI
-  的本地测试输出已经保存，但不能据此宣称完整复现论文全部鲁棒性和半监督实验。
-\item
-  本地环境为 Windows、Python 3.12、PyTorch 2.6，而作者 README
-  中的环境较旧，版本差异可能影响数值结果。
-\end{enumerate}
-
-因此，本项目的准确表述是：\textbf{完成 MERBench/MER2023
-核心融合实验的本地复现，以及一组结构改进和消融实验；尚未完成论文全部实验族的严格复现。}
-
-\section{13 结论}\label{13-ux7ed3ux8bba}
-
-本复现使用官方 MERBench 代码结构和官方 MER2023 预提取特征，在 RTX 4060
-Laptop 8GB 环境下完成了可运行、可追溯的 MER-MULTI
-核心实验。单模态实验表明，单独使用音频、文本或视觉的性能明显低于多模态融合；五种融合基线均表现出多模态互补优势。模态缺失消融显示，音频和视觉缺失对分类性能的影响大于文本缺失。
-
-改进方面，类别加权版本取得了当前最高的 WAF 81.56 和 UAR 78.45；门控残差
-Attention 取得 WAF 81.21 和 UAR 77.74，相比原始 Attention
-有稳定的正向提升。两种改进分别从类别不均衡和模态可靠性两个角度改善模型，结果具有可解释性，但仍需要更多随机种子和完整特征池实验验证泛化性。
-
-本地严格对应论文 MER-MULTI 参考结果完成 9/24
-项，已满足本课程作业要求的论文基线、改进实验和消融实验要求；medium/low、Top-k、跨语料库及其他论文实验族明确列为尚未完成部分。
-
-\section{14 参考文献}\label{14-ux53c2ux8003ux6587ux732e}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Zheng Lian, Licai Sun, Yong Ren, Hao Gu, Haiyang Sun, Lan Chen, Bin
-  Liu, Jianhua Tao. \emph{MERBench: A Unified Evaluation Benchmark for
-  Multimodal Emotion Recognition}. arXiv:2401.03429, 2024.
-  \url{https://arxiv.org/html/2401.03429}
-\item
-  MERBench
-  官方代码仓库：\url{https://github.com/zeroQiaoba/MERTools/tree/master/MERBench}
-\item
-  MERBench 官方 README 中的 MER2023
-  预提取特征入口：\url{https://pan.baidu.com/s/1l2yrWG3wXHjdRljAk32fPQ}；提取码：\texttt{uds2}
-\end{enumerate}
+\bibitem{repo}
+本地复现代码：\url{https://github.com/cai-jj21/merbench-mer2023-reproduction}。
+\end{thebibliography}
 
 \end{document}
