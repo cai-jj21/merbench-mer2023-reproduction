@@ -185,6 +185,20 @@
       "notes": "full MER2023 five-fold run, intentionally reported as a limited-epoch extension rather than the paper's 100 epoch Table IX result"
     },
     {
+      "name": "GMFN high FRA (5 epochs)",
+      "type": "extended_partial",
+      "model": "graph_mfn",
+      "result_dir": "results/graph_mfn_high_fra_seed2026_formal",
+      "run_dir": "runs/graph_mfn_high_fra_seed2026_formal-trimodal",
+      "log": "runs/graph_mfn_high_fra_seed2026_formal.log",
+      "hyper_path": "configs/hyper_extended.yaml",
+      "epochs": 5,
+      "test1": {"waf": 59.35, "acc": 62.04, "uar": 51.25, "mse": 0.9903},
+      "paper_waf": 77.00,
+      "checkpoints": 5,
+      "notes": "full MER2023 five-fold run, intentionally reported as a limited-epoch extension rather than the paper's 100 epoch Table IX result"
+    },
+    {
       "name": "Attention fixed hyperparameters, three seeds",
       "type": "statistics",
       "model": "attention",
@@ -216,7 +230,13 @@
         "runs/mfm_high_fra_seed2026.log",
         "runs/mctn_high_fra_seed2026.log"
       ],
-      "reason": "1 epoch debug smoke runs completed with full model construction and output files; formal full-data benchmark runs remain pending"
+      "reason": "1 epoch debug smoke runs completed before the full-data extensions; MFM and MCTN formal full-data benchmark runs remain pending"
+    },
+    {
+      "name": "MFM high FRA (5 epochs)",
+      "status": "aborted_runtime",
+      "log": "runs/mfm_high_fra_seed2026_formal.log",
+      "reason": "full-data run reached epoch 2 of fold 1 after roughly one hour without further progress; stopped to avoid blocking the remaining reproducibility work. No final metrics were reported."
     }
   ],
   "pending": [

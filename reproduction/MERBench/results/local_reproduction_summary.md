@@ -28,6 +28,10 @@
 | extended_partial | MFN high FRA (5 epochs) | test1 | 56.52 | 61.80 | 49.05 | 0.9639 | 77.40 |  | 5 |
 | extended_partial | MFN high FRA (5 epochs) | test2 | 59.16 | 64.32 | 47.47 | 0.9438 | 77.40 |  | 5 |
 | extended_partial | MFN high FRA (5 epochs) | test3 | 70.66 | 71.70 | 53.65 |  | 77.40 |  | 5 |
+| extended_partial | GMFN high FRA (5 epochs) | cv | 58.65 | 62.20 |  | 0.9963 | 77.00 |  | 5 |
+| extended_partial | GMFN high FRA (5 epochs) | test1 | 59.35 | 62.04 | 51.25 | 0.9903 | 77.00 |  | 5 |
+| extended_partial | GMFN high FRA (5 epochs) | test2 | 60.21 | 62.86 | 47.63 | 0.9061 | 77.00 |  | 5 |
+| extended_partial | GMFN high FRA (5 epochs) | test3 | 75.98 | 76.62 | 57.56 |  | 77.00 |  | 5 |
 | unimodal | Audio only | cv | 69.72 | 69.97 |  | 1.0377 | 69.91 | 0.97 | 0 |
 | unimodal | Audio only | test1 | 68.59 | 68.61 | 63.56 | 0.9345 | 69.91 | 0.97 | 0 |
 | unimodal | Audio only | test2 | 62.97 | 64.08 | 52.53 | 1.4150 | 69.91 | 0.97 | 0 |

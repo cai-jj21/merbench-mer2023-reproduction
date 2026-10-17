@@ -1,7 +1,7 @@
 # MERBench MER2023 多模态情感识别复现实验报告
 
 课程：情感计算  
-姓名：__________  学号：__________  
+姓名：蔡均炅  学号：2026210870
 选题：*MERBench: A Unified Evaluation Benchmark for Multimodal Emotion Recognition*  
 作者：Zheng Lian 等  
 实验日期：2026 年 10 月
@@ -26,7 +26,7 @@ MER2023 的本地划分与论文统计一致：Train&Val 有 3373 个样本，ME
 
 ## 3 论文基线与本地复现结果
 
-本地直接对应论文 MER-MULTI 参考表的结果共有 10/24 项，覆盖率为 41.7%。其中 high 特征下的三种单模态、Table III 的 high 多任务组合、Attention、LMF、MISA、TFN、MulT 和 MMIM 六种融合结果均已完成；另外 MFN 完成了全量五折 5 epoch 扩展训练，GMFN/MFM/MCTN 完成了 debug 冒烟。medium/low 特征和 Top-k 特征选择没有在本轮执行。
+本地直接对应论文 MER-MULTI 参考表的结果共有 10/24 项，覆盖率为 41.7%。其中 high 特征下的三种单模态、Table III 的 high 多任务组合、Attention、LMF、MISA、TFN、MulT 和 MMIM 六种融合结果均已完成；另外 MFN 和 GMFN 完成了全量五折 5 epoch 扩展训练，MFM/MCTN 保留了 debug 冒烟。扩展训练不等价于论文的 100 epoch 正式结果。medium/low 特征和 Top-k 特征选择没有在本轮执行。
 
 | 实验 | 论文 WAF | 本地 WAF | 本地 ACC | 本地 UAR | 论文 MSE | 本地 MSE |
 |---|---:|---:|---:|---:|---:|---:|
@@ -56,6 +56,8 @@ MER2023 的本地划分与论文统计一致：Train&Val 有 3373 个样本，ME
 | 融合 | TFN | 80.49 | 80.78 | 75.35 | 0.6934 |
 | 融合 | MulT FRA | 80.39 | 80.54 | 77.62 | 0.8183 |
 | 融合 | MMIM stable | 75.96 | 76.40 | 68.72 | 0.7084 |
+| 扩展 | MFN FRA (5 epochs) | 56.52 | 61.80 | 49.05 | 0.9639 |
+| 扩展 | GMFN FRA (5 epochs) | 59.35 | 62.04 | 51.25 | 0.9903 |
 | 消融 | Drop audio | 74.54 | 74.45 | 70.15 | 0.9129 |
 | 消融 | Drop text | 76.74 | 76.89 | 72.31 | 0.6763 |
 | 消融 | Drop visual | 75.22 | 75.18 | 71.08 | 0.8886 |
@@ -92,7 +94,7 @@ MER2023 的本地划分与论文统计一致：Train&Val 有 3373 个样本，ME
 
 分类指标和回归指标并不完全同步。类别加权和门控残差都提高了分类表现，但 MSE 略有上升，说明模型在优化离散类别边界时牺牲了一部分连续 valence 拟合。
 
-本轮完成了 MER-MULTI 的 high 特征单模态、六种正式融合基线、MFN 全量五折 5 epoch 扩展、三种模态缺失消融、类别加权和门控残差改进，论文参考结果覆盖 10/24。GMFN/MFM/MCTN 只完成了 1 epoch debug 冒烟，尚未完成正式 100 epoch 结果；medium/low 特征、Top-k、跨语料库、完整噪声生成、预训练与下游微调等实验族也尚未完成，因此不能声称完整复现论文全部结果。
+本轮完成了 MER-MULTI 的 high 特征单模态、六种正式融合基线、MFN/GMFN 全量五折 5 epoch 扩展、三种模态缺失消融、类别加权和门控残差改进，论文参考结果覆盖 10/24。MFM/MCTN 只完成了 1 epoch debug 冒烟，尚未完成正式 100 epoch 结果；medium/low 特征、Top-k、跨语料库、完整噪声生成、预训练与下游微调等实验族也尚未完成，因此不能声称完整复现论文全部结果。
 
 结论是：三模态融合显著优于单模态；六种 high 官方融合基线中五种常规模型在本地达到约 80% WAF，稳定 MMIM 对超参数更敏感；针对 MER-MULTI 类别不均衡的类别加权取得最高本地结果 WAF 81.56、UAR 78.45，是本次最值得保留的改进。
 

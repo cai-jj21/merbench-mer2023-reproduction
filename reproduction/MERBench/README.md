@@ -4,7 +4,7 @@
 
 GitHub 仓库：<https://github.com/cai-jj21/merbench-mer2023-reproduction>
 
-当前状态：已使用官方代码和官方百度网盘提供的 `mer2023-dataset-process` 预提取特征，完成单模态、Attention/LMF/MISA/TFN/MulT 融合基线、类别加权改进、门控残差 Attention 结构改进、三类模态缺失消融，以及 Attention 固定超参三 seed 统计。MulT FRA 100 epoch 五折结果和结构改进的 100 epoch 五折结果已生成并纳入汇总表。
+当前状态：已使用官方代码和官方百度网盘提供的 `mer2023-dataset-process` 预提取特征，完成单模态、Attention/LMF/MISA/TFN/MulT/MMIM 融合基线、类别加权改进、门控残差 Attention 结构改进、三类模态缺失消融，以及 Attention 固定超参三 seed 统计。MulT/MMIM 正式五折结果、MFN/GMFN 全量 5 epoch 扩展结果已生成并纳入汇总表；MFM/MCTN 仍保留 debug 结果，不能当作论文正式值。
 
 ## 目录
 
@@ -155,6 +155,9 @@ Additional official fusion models now supported by the same PowerShell script:
 # Full-data 5-epoch MFN extension (reported separately from the paper's 100-epoch value)
 .\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mfn -Epochs 5 -BatchSize 32 -Seed 2026
 
+# Full-data 5-epoch GMFN extension (reported separately from the paper's 100-epoch value)
+.\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage graph_mfn -Epochs 5 -BatchSize 32 -Seed 2026
+
 # 1-epoch compatibility smoke tests for the remaining FRA sequence models
 .\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage graph_mfn -Epochs 1 -BatchSize 16 -Seed 2026 -Debug
 .\reproduction\MERBench\scripts\run_merbench_experiments.ps1 -Stage mfm -Epochs 1 -BatchSize 16 -Seed 2026 -Debug
@@ -247,5 +250,6 @@ reproduction/MERBench/runs/
 - 论文报告多次运行的均值和标准差，本地已对 Attention 固定超参完成 seed 2026/2027/2028 统计，其他正式基线仍以 seed 2026 为主。
 - MISA 默认官方随机超参在本机出现 NaN，因此报告中使用稳定超参版并明确标注。
 - MulT FRA 100 epoch 五折正式结果已生成；本地结果仍与论文报告值分开列出。
+- GMFN 的全量 5 epoch 扩展已完成；MFM 全量运行在第 1 折第 2 轮后因序列计算过慢中止，MCTN 仍为 smoke，二者没有伪造最终指标。
 - Table X Top-k/medium/low 的本地结果需要官方对应特征池，不能用论文均值替代。
 - 本地未重新提取 CLIP、HuBERT、Baichuan 特征，复现范围是“基于官方预提取特征的融合训练与评测”。
